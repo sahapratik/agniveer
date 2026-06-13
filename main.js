@@ -1,314 +1,142 @@
-/* ================================================================
-   AGNIVEER BANGLA — main.js
-   Handles: Sticky Nav · Mobile Menu · Scroll Animations ·
-            Reading Progress · Animated Counters · Back-to-Top ·
-            Quote Glow · Filter · Cookie Notice
-   ================================================================ */
+/* ── AGNIVEER BANGLA — main.js (standalone, no external deps) ── */
+"use strict";
 
+/* ── NAV SCROLL BEHAVIOUR ─────────────────────────────────────── */
 (function () {
-  'use strict';
+  const nav = document.getElementById('main-nav');
+  if (!nav) return;
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    nav.classList.toggle('nav-scrolled', y > 60);
+    nav.classList.toggle('nav-hidden', y > lastY + 5 && y > 200);
+    nav.classList.remove('nav-hidden', y <= lastY || y < 200);
+    lastY = y;
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 
-  /* ── HELPERS ──────────────────────────────────────────────────── */
-  const $  = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ─────────────────────────────────────────────────────────────
-     1. STICKY NAVIGATION
-     Transitions between transparent (over dark hero) and
-     frosted-glass solid states on scroll.
-  ─────────────────────────────────────────────────────────────── */
-  const nav = $('#main-nav');
-
-  function syncNav() {
-    if (!nav) return;
-    const hasDarkHero = document.body.classList.contains('has-dark-hero');
-    const scrolled    = window.scrollY > 80;
-
-    if (hasDarkHero) {
-      nav.classList.toggle('nav-solid',       scrolled);
-      nav.classList.toggle('nav-transparent', !scrolled);
-    } else {
-      nav.classList.add('nav-solid');
-      nav.classList.remove('nav-transparent');
-    }
-  }
-
-  window.addEventListener('scroll', syncNav, { passive: true });
-  syncNav(); // run once on load
-
-  /* ─────────────────────────────────────────────────────────────
-     2. MOBILE HAMBURGER MENU
-  ─────────────────────────────────────────────────────────────── */
-  const hamburger  = $('#nav-hamburger');
-  const mobileMenu = $('#mobile-menu');
-
-  if (hamburger && mobileMenu) {
-    function closeMobileMenu() {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
+/* ── HAMBURGER / MOBILE MENU ─────────────────────────────────── */
+(function () {
+  const btn = document.getElementById('nav-hamburger');
+  const menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    btn.classList.toggle('is-open', !open);
+    menu.classList.toggle('is-open', !open);
+    document.body.style.overflow = open ? '' : 'hidden';
+  });
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('is-open');
+      menu.classList.remove('is-open');
+      document.body.style.overflow = '';
+    })
+  );
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('is-open');
+      menu.classList.remove('is-open');
       document.body.style.overflow = '';
     }
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    // Close on link click
-    $$('a', mobileMenu).forEach(a => a.addEventListener('click', closeMobileMenu));
-
-    // Close on outside click
-    document.addEventListener('click', e => {
-      if (!nav.contains(e.target) && mobileMenu.classList.contains('open')) {
-        closeMobileMenu();
-      }
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-        closeMobileMenu();
-        hamburger.focus();
-      }
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     3. READING PROGRESS BAR
-     Only active on pages that have #reading-progress-bar
-  ─────────────────────────────────────────────────────────────── */
-  const progressBar = $('#reading-progress-bar');
-
-  if (progressBar) {
-    function updateProgress() {
-      const docH  = document.documentElement.scrollHeight - window.innerHeight;
-      const pct   = docH > 0 ? (window.scrollY / docH) * 100 : 0;
-      progressBar.style.width = Math.min(pct, 100) + '%';
-    }
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     4. INTERSECTION OBSERVER — SCROLL ANIMATIONS
-     Adds .vis to .fade-up elements as they enter the viewport.
-     Staggered via CSS delay classes (.d1 – .d5).
-  ─────────────────────────────────────────────────────────────── */
-  if (!prefersReduced) {
-    const fadeEls = $$('.fade-up');
-
-    if (fadeEls.length) {
-      const fadeObs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('vis');
-            fadeObs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -55px 0px' });
-
-      fadeEls.forEach(el => fadeObs.observe(el));
-    }
-
-    /* Sanskrit quote glow on entry */
-    const qBlocks = $$('.q-block');
-    if (qBlocks.length) {
-      const qObs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('glow'), 180);
-            qObs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      qBlocks.forEach(el => qObs.observe(el));
-    }
-
-  } else {
-    // Immediately reveal everything if reduced motion is preferred
-    $$('.fade-up').forEach(el => el.classList.add('vis'));
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     5. ANIMATED COUNTERS
-     Elements need data-target (number) and optional data-suffix.
-     Uses ease-out cubic for smooth deceleration.
-  ─────────────────────────────────────────────────────────────── */
-  const counters = $$('.stat-num[data-target]');
-
-  if (counters.length && !prefersReduced) {
-    function runCounter(el) {
-      const target   = parseInt(el.dataset.target, 10);
-      const suffix   = el.dataset.suffix || '';
-      const duration = 1800;
-      const start    = performance.now();
-
-      // Bengali numeral map
-      const toBn = n => n.toString().replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
-
-      function tick(now) {
-        const elapsed  = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease     = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-        const current  = Math.round(target * ease);
-        el.textContent = toBn(current) + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = toBn(target) + suffix;
-      }
-      requestAnimationFrame(tick);
-    }
-
-    const cObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          runCounter(entry.target);
-          cObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.6 });
-
-    counters.forEach(el => cObs.observe(el));
-  } else {
-    // Set final values immediately for reduced motion
-    counters.forEach(el => {
-      const toBn = n => n.toString().replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
-      el.textContent = toBn(parseInt(el.dataset.target, 10)) + (el.dataset.suffix || '');
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     6. BACK-TO-TOP BUTTON
-  ─────────────────────────────────────────────────────────────── */
-  const btt = $('#back-to-top');
-
-  if (btt) {
-    window.addEventListener('scroll', () => {
-      btt.classList.toggle('show', window.scrollY > 500);
-    }, { passive: true });
-
-    btt.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     7. COOKIE / CONSENT NOTICE
-     Persisted in localStorage so it shows only once.
-  ─────────────────────────────────────────────────────────────── */
-  const cookieEl = $('#cookie-notice');
-
-  if (cookieEl) {
-    const KEY = 'agni-cookie-ok';
-
-    if (!localStorage.getItem(KEY)) {
-      setTimeout(() => cookieEl.classList.add('show'), 2200);
-
-      function dismissCookie() {
-        cookieEl.classList.remove('show');
-        localStorage.setItem(KEY, '1');
-      }
-
-      const btnOk = $('#cookie-ok',  cookieEl);
-      const btnNo = $('#cookie-no', cookieEl);
-      if (btnOk) btnOk.addEventListener('click', dismissCookie);
-      if (btnNo) btnNo.addEventListener('click', dismissCookie);
-    }
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     8. CATEGORY FILTER BUTTONS
-     Toggles .on class and hides/shows cards via data-category.
-  ─────────────────────────────────────────────────────────────── */
-  const filterBtns = $$('.filter-btn');
-
-  if (filterBtns.length) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function () {
-        filterBtns.forEach(b => b.classList.remove('on'));
-        this.classList.add('on');
-
-        const filter = this.dataset.filter || 'all';
-        const cards  = $$('[data-category]');
-
-        cards.forEach(card => {
-          const show = filter === 'all' || card.dataset.category === filter;
-          card.style.display = show ? '' : 'none';
-          // Re-trigger fade animation for visible cards
-          if (show && !prefersReduced) {
-            card.classList.remove('vis');
-            requestAnimationFrame(() => card.classList.add('vis'));
-          }
-        });
-      });
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     9. SMOOTH SCROLL for in-page anchor links
-  ─────────────────────────────────────────────────────────────── */
-  $$('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const id     = this.getAttribute('href');
-      if (id === '#') return;
-      const target = $(id);
-      if (!target) return;
-      e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - 84;
-      window.scrollTo({ top, behavior: prefersReduced ? 'auto' : 'smooth' });
-    });
   });
-
-  /* ─────────────────────────────────────────────────────────────
-     10. CONTACT FORM — simulated submission
-  ─────────────────────────────────────────────────────────────── */
-  const contactForm = $('#contact-form');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const btn     = this.querySelector('.form-submit');
-      const origTxt = btn.textContent;
-
-      btn.textContent = 'পাঠানো হচ্ছে…';
-      btn.disabled    = true;
-
-      setTimeout(() => {
-        btn.textContent         = '✓ বার্তা সফলভাবে পাঠানো হয়েছে!';
-        btn.style.background    = '#2E7D32';
-        contactForm.reset();
-
-        setTimeout(() => {
-          btn.textContent      = origTxt;
-          btn.style.background = '';
-          btn.disabled         = false;
-        }, 3200);
-      }, 1600);
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     11. NAVBAR ACTIVE LINK HIGHLIGHT
-     Marks the current page's nav link as active.
-  ─────────────────────────────────────────────────────────────── */
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  $$('.nav-link, .mobile-menu-link').forEach(link => {
-    const href = link.getAttribute('href')?.split('?')[0] || '';
-    if (href === currentPage) link.classList.add('active');
-  });
-
-  /* ─────────────────────────────────────────────────────────────
-     12. VERSE TICKER — duplicate content for seamless infinite loop
-     We measure the actual content width and duplicate just enough.
-  ─────────────────────────────────────────────────────────────── */
-  const tickerTrack = $('.verse-ticker-track');
-  if (tickerTrack) {
-    // Content is already doubled in HTML; no JS needed for basic loop.
-    // This just ensures the animation looks right on first paint.
-    tickerTrack.style.animationPlayState = 'running';
-  }
-
 })();
+
+/* ── READING PROGRESS BAR ────────────────────────────────────── */
+(function () {
+  const bar = document.getElementById('reading-progress-bar');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+    bar.style.width = Math.min(scrolled, 100) + '%';
+  }, { passive: true });
+})();
+
+/* ── FADE-UP INTERSECTION OBSERVER ──────────────────────────── */
+(function () {
+  const els = document.querySelectorAll('.fade-up');
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+
+/* ── COUNTER ANIMATION ───────────────────────────────────────── */
+(function () {
+  const counters = document.querySelectorAll('[data-target]');
+  if (!counters.length) return;
+  const format = n => n >= 1000 ? (n / 1000).toFixed(0) + ',' + '০০০' : String(n);
+  const toBN = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+  const animateCounter = el => {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1800;
+    const step = target / (duration / 16);
+    let current = 0;
+    const tick = () => {
+      current = Math.min(current + step, target);
+      el.textContent = toBN(Math.round(current)) + (current >= target && target >= 1000 ? '+' : '');
+      if (current < target) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if (!('IntersectionObserver' in window)) {
+    counters.forEach(animateCounter);
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCounter(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => io.observe(el));
+})();
+
+/* ── BACK TO TOP ─────────────────────────────────────────────── */
+(function () {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+/* ── COOKIE NOTICE ───────────────────────────────────────────── */
+(function () {
+  const notice = document.getElementById('cookie-notice');
+  if (!notice) return;
+  if (localStorage.getItem('cookie_ok')) { notice.remove(); return; }
+  setTimeout(() => notice.classList.add('visible'), 1500);
+  const ok = document.getElementById('cookie-ok');
+  const no = document.getElementById('cookie-no');
+  if (ok) ok.addEventListener('click', () => { localStorage.setItem('cookie_ok', '1'); notice.remove(); });
+  if (no) no.addEventListener('click', () => notice.remove());
+})();
+
+/* ── SMOOTH ANCHOR SCROLL ────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+    window.scrollTo({ top: target.offsetTop - navH - 16, behavior: 'smooth' });
+  });
+});

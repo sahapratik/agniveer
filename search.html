@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="অগ্নিবীর বাংলায় অনুসন্ধান করুন — বেদ, উপনিষদ, ইতিহাস ও সনাতন দর্শনের প্রবন্ধ খুঁজুন।"/>
+  <meta name="theme-color" content="#C45000"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <title>অনুসন্ধান | অগ্নিবীর বাংলা</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="has-dark-hero">
+  <a href="#main-content" class="skip-link">প্রধান বিষয়বস্তুতে যান</a>
+  <div class="read-progress"><div class="read-progress-bar" id="reading-progress-bar"></div></div>
+  <nav id="main-nav" class="nav nav-transparent" role="navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo"><svg class="nav-logo-icon" viewBox="0 0 36 44" fill="none"><path d="M18 2C18 2 5 16 5 27C5 34.18 10.82 40 18 40C25.18 40 31 34.18 31 27C31 16 18 2 18 2Z" fill="currentColor" opacity="0.85"/><path d="M18 10C18 10 10 20 10 27C10 31.42 13.58 35 18 35C22.42 35 26 31.42 26 27C26 20 18 10 18 10Z" fill="white" opacity="0.18"/></svg><span class="nav-logo-text">অগ্নিবীর</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">হোম</a></li>
+        <li><a href="category.html?cat=ved" class="nav-link">বেদ</a></li>
+        <li><a href="category.html?cat=jeevan" class="nav-link">বৈদিক জীবনধারা</a></li>
+        <li><a href="category.html?cat=itihas" class="nav-link">ইতিহাস</a></li>
+        <li><a href="category.html?cat=bigyan" class="nav-link">বিজ্ঞান</a></li>
+        <li><a href="category.html?cat=trait" class="nav-link">ত্রৈতবাদ</a></li>
+        <li><a href="category.html?cat=resp" class="nav-link">অপপ্রচারের জবাব</a></li>
+        <li><a href="about.html" class="nav-link">আমাদের সম্পর্কে</a></li>
+      </ul>
+      <div class="nav-actions"><a href="search.html" class="nav-icon-btn" aria-label="অনুসন্ধান"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a><button id="nav-hamburger" class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="মেনু খুলুন"><span></span><span></span><span></span></button></div>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true">
+    <ul class="mobile-menu-links" role="list">
+      <li><a href="index.html" class="mobile-menu-link">হোম</a></li>
+      <li><a href="category.html?cat=ved" class="mobile-menu-link">বেদ</a></li>
+      <li><a href="category.html?cat=jeevan" class="mobile-menu-link">বৈদিক জীবনধারা</a></li>
+      <li><a href="category.html?cat=itihas" class="mobile-menu-link">ইতিহাস</a></li>
+      <li><a href="category.html?cat=bigyan" class="mobile-menu-link">বিজ্ঞান</a></li>
+      <li><a href="category.html?cat=trait" class="mobile-menu-link">ত্রৈতবাদ</a></li>
+      <li><a href="category.html?cat=resp" class="mobile-menu-link">অপপ্রচারের জবাব</a></li>
+      <li><a href="about.html" class="mobile-menu-link">আমাদের সম্পর্কে</a></li>
+      <li><a href="contact.html" class="mobile-menu-link">যোগাযোগ</a></li>
+      <li><a href="https://elibrary.agniveerbangla.org/" class="mobile-menu-link" target="_blank" rel="noopener">🔴 গ্রন্থাগার</a></li>
+    </ul>
+  </div>
+  <main id="main-content">
+    <div class="search-hero">
+      <div class="container">
+        <h1 class="search-hero-title">প্রবন্ধ অনুসন্ধান</h1>
+        <div class="search-input-wrap">
+          <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" id="search-box" class="search-input" placeholder="বেদ, উপনিষদ, ইতিহাস..." autocomplete="off" aria-label="অনুসন্ধান করুন"/>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div id="search-status" class="search-result-count" style="display:none;"></div>
+        <div class="grid-3" id="search-results"></div>
+        <div id="search-empty" class="search-no-results" style="display:none;">
+          <div class="search-no-results-icon">🔍</div>
+          <p>কোনো ফলাফল পাওয়া যায়নি।</p>
+          <p style="font-size:.875rem;margin-top:.5rem;">অন্য শব্দ দিয়ে চেষ্টা করুন।</p>
+        </div>
+        <div id="search-initial" style="text-align:center;padding:4rem 0;color:var(--c-text-muted);font-family:var(--f-bn);">
+          <div style="font-size:3rem;margin-bottom:1rem;opacity:.2;">ॐ</div>
+          <p>উপরের বাক্সে বাংলা বা ইংরেজিতে খুঁজুন</p>
+          <p style="font-size:.875rem;margin-top:.5rem;opacity:.6;">যেমন: বেদ, উপনিষদ, পরিবেশ, ঈশ্বর...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div><div class="f-brand-name">অগ্নিবীর</div><div class="f-brand-tag">সত্য প্রকাশে নির্ভীক সৈনিক</div><p class="f-brand-desc">বেদ, উপনিষদ ও সনাতন দর্শনের আলোকে সত্যের অনুসন্ধানে নিবেদিত।</p></div><div><h3 class="f-col-title">বিষয়শ্রেণী</h3><ul class="f-links"><li><a href="category.html?cat=ved" class="f-link">বেদ</a></li><li><a href="category.html?cat=jeevan" class="f-link">বৈদিক জীবনধারা</a></li><li><a href="category.html?cat=itihas" class="f-link">ইতিহাস</a></li><li><a href="category.html?cat=bigyan" class="f-link">বিজ্ঞান</a></li></ul></div><div><h3 class="f-col-title">সম্পদ</h3><ul class="f-links"><li><a href="https://elibrary.agniveerbangla.org/" class="f-link" target="_blank" rel="noopener">গ্রন্থাগার</a></li><li><a href="https://vedicscriptures.in/" class="f-link" target="_blank" rel="noopener">অনলাইন বেদ</a></li></ul></div><div><h3 class="f-col-title">সাইট</h3><ul class="f-links"><li><a href="about.html" class="f-link">আমাদের সম্পর্কে</a></li><li><a href="contact.html" class="f-link">যোগাযোগ</a></li><li><a href="search.html" class="f-link">অনুসন্ধান</a></li></ul></div></div><div class="f-divider"></div><div class="f-bottom"><p class="f-copy">© ২০২৬ অগ্নিবীর বাংলা। সর্বস্বত্ব সংরক্ষিত।</p><ul class="f-btm-links"><li><a href="#" class="f-btm-link">গোপনীয়তা নীতি</a></li></ul></div><div class="f-crafted"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Crafted by <strong>Pratik Studios</strong></div></div></footer>
+  <button id="back-to-top" class="btt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <div id="cookie-notice" class="cookie"><p>আমরা কুকি ব্যবহার করি।</p><div class="cookie-btns"><button id="cookie-ok" class="cookie-ok">গ্রহণ করুন</button><button id="cookie-no" class="cookie-no">বাতিল</button></div></div>
+  <script src="main.js"></script>
+<script>
+const SEARCH_ARTICLES=[{"link": "article-sports.html", "title": "বেদ ও বৈদিক শাস্ত্রে খেলাধুলা", "cat": "সমসাময়িক ভাবনা", "cat_key": "jeevan", "date": "১১ জুন, ২০২৬", "excerpt": "বেদ ও বৈদিক শাস্ত্রে খেলাধুলা"}, {"link": "article-env2.html", "title": "পরিবেশের অবনতি ঘটছে কেন?", "cat": "সমসাময়িক ভাবনা", "cat_key": "jeevan", "date": "০৫ জুন, ২০২৬", "excerpt": "পরিবেশের অবনতি ঘটছে কেন?"}, {"link": "article-trees.html", "title": "বৃক্ষনিধন সম্পর্কে পবিত্র বেদের বার্তা", "cat": "সমসাময়িক ভাবনা", "cat_key": "jeevan", "date": "০৫ জুন, ২০২৬", "excerpt": "বৃক্ষনিধন সম্পর্কে পবিত্র বেদের বার্তা"}, {"link": "article-nirakaar.html", "title": ""নিরাকার" ঈশ্বরের ঔপনিষদিক প্রমাণ", "cat": "ব্রহ্ম", "cat_key": "ved", "date": "০১ জুন, ২০২৬", "excerpt": ""নিরাকার" ঈশ্বরের ঔপনিষদিক প্রমাণ"}, {"link": "article-ek-ishwar.html", "title": ""এক" ঈশ্বরের ঔপনিষদিক প্রমাণ", "cat": "ব্রহ্ম", "cat_key": "ved", "date": "২৮ মে, ২০২৬", "excerpt": ""এক" ঈশ্বরের ঔপনিষদিক প্রমাণ"}, {"link": "article-parivesh.html", "title": "পরিবেশ ও মানুষ : বেদ যা জানায়", "cat": "সমসাময়িক ভাবনা", "cat_key": "jeevan", "date": "২১ মে, ২০২৬", "excerpt": "পরিবেশ ও মানুষ : বেদ যা জানায়"}, {"link": "article-yagna.html", "title": "মানবমাত্রে যজ্ঞে অংশগ্রহণের অধিকার", "cat": "সাম্প্রতিক", "cat_key": "ved", "date": "০৫ মে, ২০২৬", "excerpt": "মানবমাত্রে যজ্ঞে অংশগ্রহণের অধিকার"}, {"link": "article-shram.html", "title": "পবিত্র বেদে শ্রম ও শ্রমজীবীর মর্যাদা", "cat": "সমসাময়িক ভাবনা", "cat_key": "jeevan", "date": "০১ মে, ২০২৬", "excerpt": "পবিত্র বেদে শ্রম ও শ্রমজীবীর মর্যাদা"}, {"link": "article.html", "title": "ওঙ্কার উপাসনা — ঈশ্বর সাধনায় উপায়", "cat": "বৈদিক উপাসনা", "cat_key": "ved", "date": "০৬ এপ্রিল, ২০২৬", "excerpt": "ওঙ্কার উপাসনা — ঈশ্বর সাধনায় উপায়"}, {"link": "article-puran.html", "title": "সমস্ত পুরাণ ও উপপুরাণের পিডিএফ লিংক", "cat": "ইবুক", "cat_key": "itihas", "date": "নভেম্বর ২০২৩", "excerpt": "সমস্ত পুরাণ ও উপপুরাণের পিডিএফ লিংক"}, {"link": "article-dayanand.html", "title": "মহর্ষি দয়ানন্দের গ্রন্থসমূহ পিডিএফ", "cat": "ইবুক", "cat_key": "ved", "date": "নভেম্বর ২০২৩", "excerpt": "মহর্ষি দয়ানন্দের গ্রন্থসমূহ পিডিএফ"}, {"link": "article-krishna.html", "title": "শ্রীকৃষ্ণ ও মহাভারত সম্পর্কিত ১০৮টি বই", "cat": "ইতিহাস", "cat_key": "itihas", "date": "নভেম্বর ২০২৩", "excerpt": "শ্রীকৃষ্ণ ও মহাভারত সম্পর্কিত ১০৮টি বই"}, {"link": "article-gotra.html", "title": "আলম্বায়ন গোত্র — ইতিহাসের আলোকে", "cat": "ইতিহাস", "cat_key": "itihas", "date": "জুন ২০২৩", "excerpt": "আলম্বায়ন গোত্র — ইতিহাসের আলোকে"}, {"link": "article-ved-pdf.html", "title": "বেদ ও বৈদিক সাহিত্যের PDF লিংক সমগ্র", "cat": "বেদ", "cat_key": "ved", "date": "নভেম্বর ২০২৩", "excerpt": "বেদ ও বৈদিক সাহিত্যের PDF লিংক সমগ্র"}];
+const AVATAR='data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E';
+function highlight(text,q){return text.replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark class="search-highlight">$1</mark>');}
+function renderResults(results,q){
+  const grid=document.getElementById('search-results');
+  const status=document.getElementById('search-status');
+  const empty=document.getElementById('search-empty');
+  const initial=document.getElementById('search-initial');
+  initial.style.display='none';
+  if(!q){grid.innerHTML='';status.style.display='none';empty.style.display='none';initial.style.display='block';return;}
+  if(!results.length){grid.innerHTML='';status.style.display='none';empty.style.display='block';return;}
+  empty.style.display='none';
+  status.style.display='block';
+  status.innerHTML='<strong>'+results.length+'</strong> টি ফলাফল পাওয়া গেছে "<strong>'+q+'</strong>" এর জন্য';
+  grid.innerHTML=results.map(a=>`<a href="${a.link}" class="card fade-up">
+    <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">${a.cat}</span></div>
+    <div class="card-body"><div class="card-meta"><span class="card-tag">${a.cat}</span><span class="card-date">${a.date}</span></div>
+    <h3 class="card-title">${highlight(a.title,q)}</h3>
+    <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="${AVATAR}" alt="" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div></div></div></a>`).join('');
+}
+let debounce;
+document.getElementById('search-box').addEventListener('input',function(){
+  clearTimeout(debounce);
+  const q=this.value.trim();
+  debounce=setTimeout(()=>{
+    if(!q){renderResults([],q);return;}
+    const results=SEARCH_ARTICLES.filter(a=>a.title.toLowerCase().includes(q.toLowerCase())||a.cat.toLowerCase().includes(q.toLowerCase()));
+    renderResults(results,q);
+  },250);
+});
+// Pre-fill from URL param
+const urlQ=new URLSearchParams(window.location.search).get('q')||'';
+if(urlQ){document.getElementById('search-box').value=urlQ;document.getElementById('search-box').dispatchEvent(new Event('input'));}
+</script>
+</body></html>
