@@ -1,342 +1,646 @@
 <!DOCTYPE html>
 <html lang="bn" dir="ltr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="অগ্নিবীর বাংলা — বেদ, উপনিষদ ও সনাতন দর্শনের আলোকে সত্যের অনুসন্ধান। বাংলায় বৈদিক জ্ঞান, ইতিহাস ও আধ্যাত্মিক প্রবন্ধ।"/>
-  <meta property="og:title" content="অগ্নিবীর বাংলা — সত্য প্রকাশে নির্ভীক সৈনিক"/>
-  <meta property="og:type" content="website"/>
-  <meta name="theme-color" content="#C45000"/>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="অগ্নিবীর বাংলা — বৈদিক জ্ঞান, সনাতন দর্শন ও সত্যের অন্বেষণ। বেদ, ইতিহাস, আধ্যাত্মিকতা ও সামাজিক মূল্যবোধ সম্পর্কিত গভীর বাংলা প্রবন্ধ।" />
+  <meta property="og:title"       content="অগ্নিবীর — সত্য প্রকাশে নির্ভীক সৈনিক" />
+  <meta property="og:description" content="বৈদিক জ্ঞান, সনাতন দর্শন ও ইতিহাসের আলোকে সত্যের অন্বেষণ।" />
+  <meta property="og:type"        content="website" />
+  <meta name="theme-color"        content="#C45000" />
   <title>অগ্নিবীর বাংলা — সত্য প্রকাশে নির্ভীক সৈনিক</title>
-  <link rel="stylesheet" href="styles.css"/>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body class="has-dark-hero">
+  <!-- ═══ SKIP LINK ══════════════════════════════════════════════ -->
   <a href="#main-content" class="skip-link">প্রধান বিষয়বস্তুতে যান</a>
-  <div class="read-progress" aria-hidden="true"><div class="read-progress-bar" id="reading-progress-bar"></div></div>
+
+  <!-- ═══ READING PROGRESS BAR ══════════════════════════════════ -->
+  <div class="read-progress" aria-hidden="true">
+    <div class="read-progress-bar" id="reading-progress-bar"></div>
+  </div>
+
+  <!-- ═══ NAVIGATION ════════════════════════════════════════════ -->
   <nav id="main-nav" class="nav nav-transparent" role="navigation" aria-label="প্রধান নেভিগেশন">
     <div class="container nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="অগ্নিবীর বাংলা"><svg class="nav-logo-icon" viewBox="0 0 36 44" fill="none" aria-hidden="true"><path d="M18 2C18 2 5 16 5 27C5 34.18 10.82 40 18 40C25.18 40 31 34.18 31 27C31 16 18 2 18 2Z" fill="currentColor" opacity="0.85"/><path d="M18 10C18 10 10 20 10 27C10 31.42 13.58 35 18 35C22.42 35 26 31.42 26 27C26 20 18 10 18 10Z" fill="white" opacity="0.18"/><path d="M18 17C18 17 13 23 13 27.5C13 30.54 15.24 33 18 33C20.76 33 23 30.54 23 27.5C23 23 18 17 18 17Z" fill="white" opacity="0.28"/><ellipse cx="18" cy="42" rx="2.5" ry="1.2" fill="currentColor" opacity="0.3"/></svg><span class="nav-logo-text">অগ্নিবীর</span></a>
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="অগ্নিবীর বাংলা — হোম">
+        <!-- Agni (flame) SVG icon -->
+        <svg class="nav-logo-icon" viewBox="0 0 36 44" fill="none" aria-hidden="true">
+          <path d="M18 2C18 2 5 16 5 27C5 34.18 10.82 40 18 40C25.18 40 31 34.18 31 27C31 16 18 2 18 2Z" fill="currentColor" opacity="0.85"/>
+          <path d="M18 10C18 10 10 20 10 27C10 31.42 13.58 35 18 35C22.42 35 26 31.42 26 27C26 20 18 10 18 10Z" fill="white" opacity="0.18"/>
+          <path d="M18 17C18 17 13 23 13 27.5C13 30.54 15.24 33 18 33C20.76 33 23 30.54 23 27.5C23 23 18 17 18 17Z" fill="white" opacity="0.28"/>
+          <ellipse cx="18" cy="42" rx="2.5" ry="1.2" fill="currentColor" opacity="0.3"/>
+        </svg>
+        <span class="nav-logo-text">অগ্নিবীর</span>
+      </a>
+
+      <!-- Desktop links -->
       <ul class="nav-links" role="list">
-        <li><a href="index.html" class="nav-link active">হোম</a></li>
-        <li><a href="category.html?cat=ved" class="nav-link">বেদ</a></li>
-        <li><a href="category.html?cat=jeevan" class="nav-link">বৈদিক জীবনধারা</a></li>
-        <li><a href="category.html?cat=itihas" class="nav-link">ইতিহাস</a></li>
-        <li><a href="category.html?cat=bigyan" class="nav-link">বিজ্ঞান</a></li>
-        <li><a href="category.html?cat=trait" class="nav-link">ত্রৈতবাদ</a></li>
-        <li><a href="category.html?cat=resp" class="nav-link">অপপ্রচারের জবাব</a></li>
-        <li><a href="about.html" class="nav-link">আমাদের সম্পর্কে</a></li>
+        <li><a href="index.html"                class="nav-link active">হোম</a></li>
+        <li><a href="category.html?cat=ved"     class="nav-link">বেদ</a></li>
+        <li><a href="category.html?cat=jeevan"  class="nav-link">বৈদিক জীবনধারা</a></li>
+        <li><a href="category.html?cat=itihas"  class="nav-link">ইতিহাস</a></li>
+        <li><a href="category.html?cat=bigyan"  class="nav-link">বিজ্ঞান</a></li>
+        <li><a href="category.html?cat=trait"   class="nav-link">ত্রৈতবাদ</a></li>
+        <li><a href="category.html?cat=resp"    class="nav-link">অপপ্রচারের জবাব</a></li>
+        <li><a href="about.html"                class="nav-link">আমাদের সম্পর্কে</a></li>
       </ul>
+
+      <!-- Actions -->
       <div class="nav-actions">
-        <a href="search.html" class="nav-icon-btn" aria-label="অনুসন্ধান"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
-        <button id="nav-hamburger" class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="মেনু খুলুন"><span></span><span></span><span></span></button>
+        <a href="search.html" class="nav-icon-btn" aria-label="অনুসন্ধান">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </a>
+        <button id="nav-hamburger" class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="মেনু খুলুন">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
+
+  <!-- ═══ MOBILE MENU ════════════════════════════════════════════ -->
   <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="নেভিগেশন মেনু">
     <ul class="mobile-menu-links" role="list">
-      <li><a href="index.html" class="mobile-menu-link">হোম</a></li>
-      <li><a href="category.html?cat=ved" class="mobile-menu-link">বেদ</a></li>
+      <li><a href="index.html"               class="mobile-menu-link">হোম</a></li>
+      <li><a href="category.html?cat=ved"    class="mobile-menu-link">বেদ</a></li>
       <li><a href="category.html?cat=jeevan" class="mobile-menu-link">বৈদিক জীবনধারা</a></li>
       <li><a href="category.html?cat=itihas" class="mobile-menu-link">ইতিহাস</a></li>
       <li><a href="category.html?cat=bigyan" class="mobile-menu-link">বিজ্ঞান</a></li>
-      <li><a href="category.html?cat=trait" class="mobile-menu-link">ত্রৈতবাদ</a></li>
-      <li><a href="category.html?cat=resp" class="mobile-menu-link">অপপ্রচারের জবাব</a></li>
-      <li><a href="about.html" class="mobile-menu-link">আমাদের সম্পর্কে</a></li>
-      <li><a href="contact.html" class="mobile-menu-link">যোগাযোগ</a></li>
+      <li><a href="category.html?cat=trait"  class="mobile-menu-link">ত্রৈতবাদ</a></li>
+      <li><a href="category.html?cat=resp"   class="mobile-menu-link">অপপ্রচারের জবাব</a></li>
+      <li><a href="about.html"               class="mobile-menu-link">আমাদের সম্পর্কে</a></li>
+      <li><a href="contact.html"             class="mobile-menu-link">যোগাযোগ</a></li>
       <li><a href="https://elibrary.agniveerbangla.org/" class="mobile-menu-link" target="_blank" rel="noopener">🔴 গ্রন্থাগার</a></li>
     </ul>
   </div>
+
+  <!-- ═══ MAIN CONTENT ══════════════════════════════════════════ -->
   <main id="main-content">
 
-    <!-- ── HERO ── -->
-    <section class="hero" aria-label="হিরো ব্যানার">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-particles" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <div class="hero-content fade-up">
-          <div class="hero-eyebrow">সত্য · জ্ঞান · ধর্ম</div>
-          <h1 class="hero-title">বেদের আলোয়<br/><span class="hero-title-accent">সত্যের পথে</span></h1>
-          <p class="hero-subtitle">বেদ, উপনিষদ ও সনাতন দর্শনের আলোকে জীবনের গভীর প্রশ্নের উত্তর খুঁজুন। বাংলায় বৈদিক জ্ঞানের অনন্য উৎস।</p>
-          <div class="hero-actions">
-            <a href="category.html" class="btn btn-primary">প্রবন্ধ পড়ুন</a>
-            <a href="https://elibrary.agniveerbangla.org/" class="btn btn-ghost" target="_blank" rel="noopener">গ্রন্থাগার</a>
+    <!-- ───────────────────────────────────────────────────────────
+         HERO SECTION
+    ─────────────────────────────────────────────────────────────── -->
+    <section class="hero" aria-label="হিরো">
+
+      <div class="hero-bg"    aria-hidden="true"></div>
+      <div class="hero-noise" aria-hidden="true"></div>
+
+      <!-- Decorative Agni flame (large background element) -->
+      <div class="hero-agni" aria-hidden="true">
+        <svg viewBox="0 0 440 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M220 12C220 12 55 165 55 285C55 377 129.5 450 220 450C310.5 450 385 377 385 285C385 165 220 12 220 12Z" fill="url(#f1)"/>
+          <path d="M220 90C220 90 105 210 105 290C105 352 156.5 400 220 400C283.5 400 335 352 335 290C335 210 220 90 220 90Z" fill="url(#f2)"/>
+          <path d="M220 165C220 165 150 248 150 292C150 328.5 181.5 358 220 358C258.5 358 290 328.5 290 292C290 248 220 165 220 165Z" fill="url(#f3)"/>
+          <defs>
+            <radialGradient id="f1" cx="50%" cy="75%" r="55%"><stop offset="0%" stop-color="#C45000" stop-opacity="0.85"/><stop offset="100%" stop-color="#FF8C00" stop-opacity="0.05"/></radialGradient>
+            <radialGradient id="f2" cx="50%" cy="75%" r="55%"><stop offset="0%" stop-color="#D86000" stop-opacity="0.65"/><stop offset="100%" stop-color="#FFB84D" stop-opacity="0.05"/></radialGradient>
+            <radialGradient id="f3" cx="50%" cy="75%" r="55%"><stop offset="0%" stop-color="#F07000" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFD700" stop-opacity="0.05"/></radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-eyebrow" aria-hidden="true">
+            <span>VEDIC KNOWLEDGE MAGAZINE</span>
+          </div>
+
+          <h1 class="hero-title">অগ্নিবীর</h1>
+
+          <p class="hero-tagline">
+            সত্য প্রকাশে নির্ভীক সৈনিক<br>
+            <em>বেদ, ইতিহাস ও সনাতন দর্শনের আলোকে জ্ঞানের পথে</em>
+          </p>
+
+          <div class="hero-cta">
+            <a href="#featured-articles" class="btn btn-primary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              প্রবন্ধ পড়ুন
+            </a>
+            <a href="https://elibrary.agniveerbangla.org/" class="btn btn-ghost" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              গ্রন্থাগার
+            </a>
           </div>
         </div>
-        <div class="hero-featured fade-up d2" aria-label="বৈশিষ্ট্যযুক্ত প্রবন্ধ">
-          <a href="article-sports.html" class="hero-card">
-            <div class="hero-card-img"><div class="hero-card-img-ph"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#C45000" stroke-width="1.5" opacity=".3"/><path d="M20 30 Q30 18 40 30 Q30 42 20 30Z" fill="#C45000" opacity=".15"/><text x="50%" y="55%" text-anchor="middle" font-size="22" fill="#C45000" opacity=".6" font-family="serif">ॐ</text></svg></div></div>
-            <div class="hero-card-body">
-              <span class="hero-card-badge">সমসাময়িক ভাবনা</span>
-              <h2 class="hero-card-title">বেদ ও বৈদিক শাস্ত্রে খেলাধুলা সম্পর্কে কী বলা হয়েছে?</h2>
-              <div class="hero-card-meta"><span>সত্যান্বেষী</span><span>১১ জুন, ২০২৬</span><span>৮ মিনিট পাঠ</span></div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────────────────────────────────────
+         VEDIC VERSE TICKER
+         Real verses from the site's "দৈনিক বেদবাণী" section
+    ─────────────────────────────────────────────────────────────── -->
+    <section class="verse-ticker" aria-label="দৈনিক বেদবাণী">
+      <div class="verse-ticker-inner">
+        <div class="verse-ticker-label" aria-hidden="true">দৈনিক বেদবাণী</div>
+        <div class="verse-ticker-track" role="marquee" aria-live="off" aria-atomic="false">
+          <!-- First set -->
+          <span class="v-item">এই সমগ্র সংসার নিরোগ এবং শুভচিন্তা যুক্ত হোক <span class="v-ref">যজুর্বেদ ১৬.৪</span></span>
+          <span class="v-item">সূর্যের আলোয় স্বয়ং আলোহীন চাঁদ আলোকিত হয় <span class="v-ref">ঋগ্বেদ ৫.৪০.৫</span></span>
+          <span class="v-item">প্রশংসনীয় সংস্কৃতি, জ্ঞান-বিজ্ঞান ও মাতৃভূমি — এই ত্রয়ী সুখ-সমৃদ্ধি প্রদান করে <span class="v-ref">ঋগ্বেদ ১.১৩.৯</span></span>
+          <span class="v-item">উত্তম জীবন লাভের জন্য জ্ঞানীদের সাহচর্যে চলা উচিৎ <span class="v-ref">ঋগ্বেদ ১.১২.১৬</span></span>
+          <span class="v-item">মানুষ কর্ম দ্বারাই জগতে মহত্ত্ব ও প্রসিদ্ধি লাভ করে <span class="v-ref">ঋগ্বেদ ৩.৩৬.১</span></span>
+          <span class="v-item">এই ধর্মের মার্গই সনাতন, এই পথে চলেই মানবগণ উন্নতি লাভ করে <span class="v-ref">ঋগ্বেদ ৪.১৮.১</span></span>
+          <span class="v-item">পরমাত্মার নিকট কোনো মানুষই বড় বা ছোট নয় — সকল মানুষই সমান <span class="v-ref">ঋগ্বেদ ৫.৬০.৫</span></span>
+          <span class="v-item">বীর মানবের জন্য পর্বতও সুগম হয়ে যায় <span class="v-ref">ঋগ্বেদ ৬.২৪.৮</span></span>
+          <span class="v-item">আমরা অন্যের সঞ্চিত পাপের কর্মফল ভোগ করি না <span class="v-ref">ঋগ্বেদ ৬.৫১.৭</span></span>
+          <span class="v-item">হে মিত্রগণ! উঠো, উদ্যমী হও এবং এই সংসার নদীকে অতিক্রম করো <span class="v-ref">ঋগ্বেদ ১০.৫৩.৮</span></span>
+          <!-- Duplicate set for seamless loop -->
+          <span class="v-item">এই সমগ্র সংসার নিরোগ এবং শুভচিন্তা যুক্ত হোক <span class="v-ref">যজুর্বেদ ১৬.৪</span></span>
+          <span class="v-item">সূর্যের আলোয় স্বয়ং আলোহীন চাঁদ আলোকিত হয় <span class="v-ref">ঋগ্বেদ ৫.৪০.৫</span></span>
+          <span class="v-item">প্রশংসনীয় সংস্কৃতি, জ্ঞান-বিজ্ঞান ও মাতৃভূমি — এই ত্রয়ী সুখ-সমৃদ্ধি প্রদান করে <span class="v-ref">ঋগ্বেদ ১.১৩.৯</span></span>
+          <span class="v-item">উত্তম জীবন লাভের জন্য জ্ঞানীদের সাহচর্যে চলা উচিৎ <span class="v-ref">ঋগ্বেদ ১.১২.১৬</span></span>
+          <span class="v-item">মানুষ কর্ম দ্বারাই জগতে মহত্ত্ব ও প্রসিদ্ধি লাভ করে <span class="v-ref">ঋগ্বেদ ৩.৩৬.১</span></span>
+          <span class="v-item">এই ধর্মের মার্গই সনাতন, এই পথে চলেই মানবগণ উন্নতি লাভ করে <span class="v-ref">ঋগ্বেদ ৪.১৮.১</span></span>
+          <span class="v-item">পরমাত্মার নিকট কোনো মানুষই বড় বা ছোট নয় — সকল মানুষই সমান <span class="v-ref">ঋগ্বেদ ৫.৬০.৫</span></span>
+          <span class="v-item">বীর মানবের জন্য পর্বতও সুগম হয়ে যায় <span class="v-ref">ঋগ্বেদ ৬.২৪.৮</span></span>
+          <span class="v-item">আমরা অন্যের সঞ্চিত পাপের কর্মফল ভোগ করি না <span class="v-ref">ঋগ্বেদ ৬.৫১.৭</span></span>
+          <span class="v-item">হে মিত্রগণ! উঠো, উদ্যমী হও এবং এই সংসার নদীকে অতিক্রম করো <span class="v-ref">ঋগ্বেদ ১০.৫৩.৮</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────────────────────────────────────
+         FEATURED ARTICLES — grid: big featured card + side stack
+    ─────────────────────────────────────────────────────────────── -->
+    <section class="section" id="featured-articles" aria-label="সাম্প্রতিক প্রবন্ধ">
+      <div class="container">
+
+        <header class="sec-header fade-up">
+          <div class="sec-eyebrow">সাম্প্রতিক প্রকাশনা</div>
+          <h2 class="sec-title">নতুন প্রবন্ধসমূহ</h2>
+          <p class="sec-desc">বেদ, দর্শন, ইতিহাস ও সমসাময়িক প্রশ্নের উপর গভীর বিশ্লেষণ</p>
+        </header>
+
+        <!-- Featured 2-column hero grid -->
+        <div class="grid-featured fade-up d1" style="margin-bottom:2.5rem;">
+
+          <!-- Big dark card -->
+          <a href="article-sports.html" class="card card-dark" style="min-height:380px;">
+            <div class="card-dim"></div>
+            <!-- decorative background gradient -->
+            <div style="position:absolute;inset:0;background:linear-gradient(145deg,#2A1005 0%,#1A0A02 100%);"></div>
+            <!-- category pattern accent -->
+            <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle at 80% 20%,rgba(196,80,0,0.22) 0%,transparent 70%);"></div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag">সমসাময়িক ভাবনা</span>
+                <span class="card-date">১১ জুন, ২০২৬</span>
+              </div>
+              <h3 class="card-title" style="-webkit-line-clamp:4;font-size:1.25rem;">বেদ ও বৈদিক শাস্ত্রে খেলাধুলা সম্পর্কে কী বলা হয়েছে?</h3>
+              <p class="card-excerpt">বেদ শুধু ধর্মীয় গ্রন্থ নয়, মানব জীবনের সামগ্রিক পথপ্রদর্শক। শারীরিক সক্ষমতা ও ক্রীড়া সম্পর্কে বৈদিক দৃষ্টিভঙ্গি কী?</p>
+              <div class="card-foot">
+                <div class="card-author">
+                  <div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy" /></div>
+                  <span class="card-author-name">সত্যান্বেষী</span>
+                </div>
+                <span class="card-more">পড়ুন →</span>
+              </div>
             </div>
           </a>
+
+          <!-- Right side: stacked smaller cards -->
+          <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+            <a href="article-gotra.html" class="card">
+              <div class="card-body" style="padding:1.25rem;">
+                <div class="card-meta">
+                  <span class="card-tag">ইতিহাস</span>
+                  <span class="card-date">২৮ জুন, ২০২৩</span>
+                </div>
+                <h3 class="card-title" style="font-size:1rem;-webkit-line-clamp:2;">আলম্বায়ন গোত্র — শাস্ত্র ও ইতিহাসের আলোকে</h3>
+                <span class="card-more">পড়ুন →</span>
+              </div>
+            </a>
+
+            <a href="article-env2.html" class="card">
+              <div class="card-body" style="padding:1.25rem;">
+                <div class="card-meta">
+                  <span class="card-tag">সমসাময়িক</span>
+                  <span class="card-date">০৫ জুন, ২০২৬</span>
+                </div>
+                <h3 class="card-title" style="font-size:1rem;-webkit-line-clamp:2;">পরিবেশের অবনতি ঘটছে কেন? বেদের আলোকে কারণ অনুসন্ধান</h3>
+                <span class="card-more">পড়ুন →</span>
+              </div>
+            </a>
+
+            <a href="article-trees.html" class="card">
+              <div class="card-body" style="padding:1.25rem;">
+                <div class="card-meta">
+                  <span class="card-tag">সমসাময়িক</span>
+                  <span class="card-date">০৫ জুন, ২০২৬</span>
+                </div>
+                <h3 class="card-title" style="font-size:1rem;-webkit-line-clamp:2;">বৃক্ষনিধন সম্পর্কে পবিত্র বেদের বার্তা — বর্তমান সময়ের প্রেক্ষাপটে</h3>
+                <span class="card-more">পড়ুন →</span>
+              </div>
+            </a>
+
+            <a href="article-nirakaar.html" class="card">
+              <div class="card-body" style="padding:1.25rem;">
+                <div class="card-meta">
+                  <span class="card-tag">ব্রহ্ম</span>
+                  <span class="card-date">০১ জুন, ২০২৬</span>
+                </div>
+                <h3 class="card-title" style="font-size:1rem;-webkit-line-clamp:2;">'নিরাকার' ঈশ্বরের ঔপনিষদিক প্রমাণ — মূখ্য উপনিষদগুলোর আলোকে</h3>
+                <span class="card-more">পড়ুন →</span>
+              </div>
+            </a>
+
+          </div>
         </div>
-      </div>
-      <div class="hero-scroll" aria-hidden="true"><div class="hero-scroll-line"></div></div>
-    </section>
 
-    <!-- ── STATS ── -->
-    <div class="stats-bar fade-up" aria-label="পরিসংখ্যান">
-      <div class="container stats-inner">
-        <div class="stat-item"><div class="stat-num" data-target="500">০</div><div class="stat-label">প্রবন্ধ</div></div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item"><div class="stat-num" data-target="50000">০</div><div class="stat-label">পাঠক</div></div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item"><div class="stat-num" data-target="12">০</div><div class="stat-label">বিষয়শ্রেণী</div></div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item"><div class="stat-num" data-target="8">০</div><div class="stat-label">বছরের অভিজ্ঞতা</div></div>
-      </div>
-    </div>
-
-    <!-- ── RECENT ARTICLES ── -->
-    <section class="section" aria-label="সাম্প্রতিক প্রবন্ধ">
-      <div class="container">
-        <header class="sec-header fade-up">
-          <div class="sec-eyebrow">সর্বশেষ</div>
-          <h2 class="sec-title">সাম্প্রতিক প্রবন্ধ</h2>
-          <a href="category.html" class="sec-link">সব দেখুন <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </header>
+        <!-- 3-column article grid -->
         <div class="grid-3">
-          <a href="article-sports.html" class="card fade-up d1">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">সমসাময়িক ভাবনা</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">সমসাময়িক ভাবনা</span><span class="card-date">১১ জুন, ২০২৬</span></div>
-                <h3 class="card-title">বেদ ও বৈদিক শাস্ত্রে খেলাধুলা সম্পর্কে কী বলা হয়েছে?</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+
+          <a href="article-ek-ishwar.html" class="card fade-up d1">
+            <div class="card-img">
+              <div class="card-img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               </div>
-            </a>
-          <a href="article-env2.html" class="card fade-up d2">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">সমসাময়িক ভাবনা</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">সমসাময়িক ভাবনা</span><span class="card-date">০৫ জুন, ২০২৬</span></div>
-                <h3 class="card-title">পরিবেশের অবনতি ঘটছে কেন? বেদের আলোকে</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              <span class="card-badge">ব্রহ্ম</span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag">ব্রহ্ম</span>
+                <span class="card-date">২৮ মে, ২০২৬</span>
               </div>
-            </a>
-          <a href="article-trees.html" class="card fade-up d3">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">সমসাময়িক ভাবনা</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">সমসাময়িক ভাবনা</span><span class="card-date">০৫ জুন, ২০২৬</span></div>
-                <h3 class="card-title">বৃক্ষনিধন সম্পর্কে পবিত্র বেদের বার্তা</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              <h3 class="card-title">'এক' ঈশ্বরের ঔপনিষদিক প্রমাণ — মূখ্য উপনিষদগুলোর প্রমাণের আলোকে</h3>
+              <p class="card-excerpt">উপনিষদ-সাহিত্যে একেশ্বরবাদের গভীর দার্শনিক ভিত্তি কোথায়? বৃহদারণ্যক থেকে কঠ পর্যন্ত বিস্তৃত এই বিশ্লেষণ।</p>
+              <div class="card-foot">
+                <div class="card-author">
+                  <div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div>
+                  <span class="card-author-name">সত্যান্বেষী</span>
+                </div>
+                <span class="card-time">৮ মিনিট</span>
               </div>
-            </a>
+            </div>
+          </a>
+
+          <a href="article-parivesh.html" class="card fade-up d2">
+            <div class="card-img">
+              <div class="card-img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+              </div>
+              <span class="card-badge">সমসাময়িক</span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag">সমসাময়িক</span>
+                <span class="card-date">২১ মে, ২০২৬</span>
+              </div>
+              <h3 class="card-title">পরিবেশ ও মানুষ : বেদ যা জানায় আমাদের</h3>
+              <p class="card-excerpt">প্রাকৃতিক পরিবেশ রক্ষায় বৈদিক চিন্তার গভীর প্রাসঙ্গিকতা আজকের সংকটময় পৃথিবীতে আরও স্পষ্ট হয়ে উঠেছে।</p>
+              <div class="card-foot">
+                <div class="card-author">
+                  <div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div>
+                  <span class="card-author-name">সত্যান্বেষী</span>
+                </div>
+                <span class="card-time">৬ মিনিট</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="card fade-up d3">
+            <div class="card-img">
+              <div class="card-img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="card-badge">বৈদিক উপাসনা</span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-tag">বৈদিক উপাসনা</span>
+                <span class="card-date">০৬ এপ্রিল, ২০২৬</span>
+              </div>
+              <h3 class="card-title">ওঙ্কার উপাসনা — ঈশ্বর সাধনায় উপায়</h3>
+              <p class="card-excerpt">ওম্‌কার হলো পরমাত্মার সর্বশ্রেষ্ঠ নাম ও প্রতীক। বৈদিক ঐতিহ্যে ওঙ্কার উপাসনার পদ্ধতি ও তাৎপর্য।</p>
+              <div class="card-foot">
+                <div class="card-author">
+                  <div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div>
+                  <span class="card-author-name">সত্যান্বেষী</span>
+                </div>
+                <span class="card-time">১০ মিনিট</span>
+              </div>
+            </div>
+          </a>
+
         </div>
-        <div class="grid-3" style="margin-top:1.5rem">
-          <a href="article-nirakaar.html" class="card fade-up d1">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">ব্রহ্ম</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">ব্রহ্ম</span><span class="card-date">০১ জুন, ২০২৬</span></div>
-                <h3 class="card-title">'নিরাকার' ঈশ্বরের ঔপনিষদিক প্রমাণ</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-              </div>
-            </a>
-          <a href="article-ek-ishwar.html" class="card fade-up d2">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">ব্রহ্ম</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">ব্রহ্ম</span><span class="card-date">২৮ মে, ২০২৬</span></div>
-                <h3 class="card-title">'এক' ঈশ্বরের ঔপনিষদিক প্রমাণ</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-              </div>
-            </a>
-          <a href="article-parivesh.html" class="card fade-up d3">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">সমসাময়িক ভাবনা</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">সমসাময়িক ভাবনা</span><span class="card-date">২১ মে, ২০২৬</span></div>
-                <h3 class="card-title">পরিবেশ ও মানুষ : বেদ যা জানায়</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-              </div>
-            </a>
+
+        <!-- View all -->
+        <div style="text-align:center;margin-top:3rem;">
+          <a href="category.html" class="btn btn-outline fade-up">
+            সকল প্রবন্ধ দেখুন
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ───────────────────────────────────────────────────────────
+         CATEGORY EXPLORER
+    ─────────────────────────────────────────────────────────────── -->
+    <section class="section section-alt" aria-label="বিষয়শ্রেণী অন্বেষণ">
+      <div class="container">
+
+        <header class="sec-header fade-up">
+          <div class="sec-eyebrow">জ্ঞানের ক্ষেত্রসমূহ</div>
+          <h2 class="sec-title">বিষয়শ্রেণী অন্বেষণ</h2>
+          <p class="sec-desc">আপনার আগ্রহের ক্ষেত্র বেছে নিন এবং গভীর জ্ঞানের সন্ধানে প্রবেশ করুন</p>
+        </header>
+
+        <div class="cat-grid">
+
+          <a href="category.html?cat=ved" class="cat-card fade-up d1">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <div class="cat-name">বেদ</div>
+            <div class="cat-count">চতুর্বেদের জ্ঞান</div>
+          </a>
+
+          <a href="category.html?cat=itihas" class="cat-card fade-up d2">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="cat-name">ইতিহাস</div>
+            <div class="cat-count">গৌরবময় অতীত</div>
+          </a>
+
+          <a href="category.html?cat=jeevan" class="cat-card fade-up d3">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="cat-name">বৈদিক জীবনধারা</div>
+            <div class="cat-count">জীবন গড়ার পথ</div>
+          </a>
+
+          <a href="category.html?cat=ved" class="cat-card fade-up d4">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="cat-name">ব্রহ্ম ও উপনিষদ</div>
+            <div class="cat-count">আত্মার অনুসন্ধান</div>
+          </a>
+
+          <a href="category.html?cat=bigyan" class="cat-card fade-up d1">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0H5m4 0h6m6-11v5a2 2 0 0 1-2 2h-6m8-7v6"/></svg>
+            </div>
+            <div class="cat-name">বিজ্ঞান ও বেদ</div>
+            <div class="cat-count">আধুনিক প্রেক্ষাপটে</div>
+          </a>
+
+          <a href="category.html?cat=trait" class="cat-card fade-up d2">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>
+            </div>
+            <div class="cat-name">ত্রৈতবাদ</div>
+            <div class="cat-count">দার্শনিক বিশ্লেষণ</div>
+          </a>
+
+          <a href="category.html?cat=resp" class="cat-card fade-up d3">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="cat-name">অপপ্রচারের জবাব</div>
+            <div class="cat-count">সত্যের উন্মোচন</div>
+          </a>
+
+          <a href="https://elibrary.agniveerbangla.org/" class="cat-card fade-up d4" target="_blank" rel="noopener">
+            <div class="cat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="cat-name">ই-লাইব্রেরি</div>
+            <div class="cat-count">PDF গ্রন্থ সংগ্রহ</div>
+          </a>
+
         </div>
       </div>
     </section>
 
-    <!-- ── TRENDING + NEWSLETTER ── -->
-    <section class="section bg-alt" aria-label="জনপ্রিয় প্রবন্ধ">
+    <!-- ───────────────────────────────────────────────────────────
+         TRENDING + RECENT (dark section)
+    ─────────────────────────────────────────────────────────────── -->
+    <section class="trending-sec" aria-label="জনপ্রিয় ও সাম্প্রতিক">
       <div class="container">
-        <div class="trend-layout">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;" class="trending-two-col">
+
+          <!-- Trending list -->
           <div>
-            <header class="sec-header fade-up">
-              <div class="sec-eyebrow">সর্বাধিক পঠিত</div>
-              <h2 class="sec-title">ট্রেন্ডিং</h2>
+            <header class="sec-header fade-up" style="text-align:left;margin-bottom:2rem;">
+              <div class="sec-eyebrow" style="color:var(--c-accent-light);">সর্বাধিক পঠিত</div>
+              <h2 class="sec-title" style="color:#FDEFD5;">জনপ্রিয় প্রবন্ধ</h2>
             </header>
-            <div class="trend-list">
-              <a href="article-puran.html" class="trend-item fade-up">
-              <div class="trend-rank">০1</div>
-              <div class="trend-content">
-                <div class="trend-cat">ইবুক</div>
-                <h3 class="trend-title">সমস্ত পুরাণ ও উপপুরাণের পিডিএফ লিংক সংগ্রহ</h3>
-                <div class="trend-date">নভেম্বর ২০২৩</div>
-              </div>
-            </a>
-              <a href="article-dayanand.html" class="trend-item fade-up">
-              <div class="trend-rank">০2</div>
-              <div class="trend-content">
-                <div class="trend-cat">ইবুক</div>
-                <h3 class="trend-title">মহর্ষি দয়ানন্দ সরস্বতীর গুরুত্বপূর্ণ গ্রন্থসমূহ পিডিএফ</h3>
-                <div class="trend-date">নভেম্বর ২০২৩</div>
-              </div>
-            </a>
-              <a href="article-krishna.html" class="trend-item fade-up">
-              <div class="trend-rank">০3</div>
-              <div class="trend-content">
-                <div class="trend-cat">ইতিহাস</div>
-                <h3 class="trend-title">শ্রীকৃষ্ণ ও মহাভারত সম্পর্কিত ১০৮টি বই [PDF]</h3>
-                <div class="trend-date">নভেম্বর ২০২৩</div>
-              </div>
-            </a>
-              <a href="article-gotra.html" class="trend-item fade-up">
-              <div class="trend-rank">০4</div>
-              <div class="trend-content">
-                <div class="trend-cat">ইতিহাস</div>
-                <h3 class="trend-title">আলম্বায়ন গোত্র — শাস্ত্র ও ইতিহাসের আলোকে</h3>
-                <div class="trend-date">জুন ২০২৩</div>
-              </div>
-            </a>
-              <a href="article-ved-pdf.html" class="trend-item fade-up">
-              <div class="trend-rank">০5</div>
-              <div class="trend-content">
-                <div class="trend-cat">বেদ</div>
-                <h3 class="trend-title">বেদ ও বৈদিক সাহিত্যের PDF লিংক সমগ্র</h3>
-                <div class="trend-date">নভেম্বর ২০২৩</div>
-              </div>
-            </a>
+
+            <div class="trending-list">
+              <a href="article-puran.html" class="t-item fade-up d1">
+                <span class="t-num">০১</span>
+                <div class="t-content">
+                  <span class="t-tag">ইবুক</span>
+                  <span class="t-title">সমস্ত পুরাণ ও উপপুরাণের পিডিএফ লিংক সংগ্রহ</span>
+                </div>
+              </a>
+              <a href="article-dayanand.html" class="t-item fade-up d2">
+                <span class="t-num">০২</span>
+                <div class="t-content">
+                  <span class="t-tag">ইবুক</span>
+                  <span class="t-title">মহর্ষি দয়ানন্দ সরস্বতীর গুরুত্বপূর্ণ গ্রন্থসমূহ পিডিএফ</span>
+                </div>
+              </a>
+              <a href="article-krishna.html" class="t-item fade-up d3">
+                <span class="t-num">০৩</span>
+                <div class="t-content">
+                  <span class="t-tag">ইতিহাস</span>
+                  <span class="t-title">শ্রীকৃষ্ণ ও মহাভারত সম্পর্কিত ১০৮টি বই [PDF]</span>
+                </div>
+              </a>
+              <a href="article-gotra.html" class="t-item fade-up d4">
+                <span class="t-num">০৪</span>
+                <div class="t-content">
+                  <span class="t-tag">সমসাময়িক</span>
+                  <span class="t-title">আলম্বায়ন গোত্র — শাস্ত্র ও ইতিহাসের আলোকে</span>
+                </div>
+              </a>
+              <a href="article-ved-pdf.html" class="t-item fade-up d5">
+                <span class="t-num">০৫</span>
+                <div class="t-content">
+                  <span class="t-tag">বেদ</span>
+                  <span class="t-title">বেদ ও বৈদিক সাহিত্যের PDF লিংক সমগ্র</span>
+                </div>
+              </a>
             </div>
           </div>
-          <aside class="nl-box fade-up" aria-label="নিউজলেটার সাবস্ক্রিপশন">
-            <div class="nl-icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+
+          <!-- Recent posts grid -->
+          <div>
+            <header class="sec-header fade-up" style="text-align:left;margin-bottom:2rem;">
+              <div class="sec-eyebrow" style="color:var(--c-accent-light);">সাম্প্রতিক লেখা</div>
+              <h2 class="sec-title" style="color:#FDEFD5;">এই সপ্তাহে</h2>
+            </header>
+            <div class="grid-2" style="gap:1.1rem;">
+
+              <a href="article-yagna.html" class="card fade-up d1" style="background:rgba(255,255,255,0.04);border-color:rgba(184,134,11,0.14);">
+                <div class="card-body" style="padding:1.1rem;">
+                  <span class="card-tag">সমসাময়িক</span>
+                  <h3 class="card-title" style="font-size:.9375rem;color:#C4B49A;margin-top:.5rem;">পবিত্র বেদ অনুযায়ী মানবমাত্রে যজ্ঞে ও উপাসনায় অংশগ্রহণের অধিকার</h3>
+                </div>
+              </a>
+
+              <a href="article-shram.html" class="card fade-up d2" style="background:rgba(255,255,255,0.04);border-color:rgba(184,134,11,0.14);">
+                <div class="card-body" style="padding:1.1rem;">
+                  <span class="card-tag">সমসাময়িক</span>
+                  <h3 class="card-title" style="font-size:.9375rem;color:#C4B49A;margin-top:.5rem;">পবিত্র বেদে শ্রম ও শ্রমজীবীর মর্যাদা</h3>
+                </div>
+              </a>
+
+              <a href="article.html" class="card fade-up d3" style="background:rgba(255,255,255,0.04);border-color:rgba(184,134,11,0.14);">
+                <div class="card-body" style="padding:1.1rem;">
+                  <span class="card-tag">বৈদিক উপাসনা</span>
+                  <h3 class="card-title" style="font-size:.9375rem;color:#C4B49A;margin-top:.5rem;">ওঙ্কার উপাসনা ~ ঈশ্বর সাধনায় উপায়</h3>
+                </div>
+              </a>
+
+              <a href="category.html" class="cat-card fade-up d4" style="background:rgba(196,80,0,0.09);border-color:rgba(196,80,0,0.22);min-height:auto;padding:1.5rem;">
+                <div class="cat-icon" style="background:rgba(196,80,0,0.15);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="cat-name" style="color:var(--c-accent);">সব প্রবন্ধ</div>
+              </a>
+
             </div>
-            <h3 class="nl-title">নিউজলেটারে যোগ দিন</h3>
-            <p class="nl-desc">নতুন প্রবন্ধ ও বৈদিক জ্ঞানের আপডেট সরাসরি আপনার ইনবক্সে পান।</p>
-            <div class="nl-form">
-              <input type="email" placeholder="আপনার ইমেইল" class="nl-input" aria-label="ইমেইল ঠিকানা"/>
-              <button class="nl-btn" onclick="this.textContent='✓ সম্পন্ন!';this.style.background='#2d7a3a'">সাবস্ক্রাইব</button>
-            </div>
-            <p class="nl-note">কোনো স্প্যাম নেই। যেকোনো সময় আনসাবস্ক্রাইব করুন।</p>
-          </aside>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ── MORE RECENT ARTICLES ── -->
-    <section class="section" aria-label="আরও প্রবন্ধ">
+    <!-- ───────────────────────────────────────────────────────────
+         MAIN QUOTE SECTION
+    ─────────────────────────────────────────────────────────────── -->
+    <section class="quote-section" aria-label="বৈদিক বাণী">
       <div class="container">
-        <header class="sec-header fade-up">
-          <div class="sec-eyebrow">আরও পড়ুন</div>
-          <h2 class="sec-title">বিভিন্ন বিষয়ে প্রবন্ধ</h2>
-          <a href="category.html" class="sec-link">সব দেখুন <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </header>
-        <div class="grid-3">
-          <a href="article-yagna.html" class="card fade-up d1">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">সাম্প্রতিক</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">সাম্প্রতিক</span><span class="card-date">০৫ মে, ২০২৬</span></div>
-                <h3 class="card-title">মানবমাত্রে যজ্ঞে অংশগ্রহণের অধিকার</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-              </div>
-            </a>
-          <a href="article-shram.html" class="card fade-up d2">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">সমসাময়িক ভাবনা</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">সমসাময়িক ভাবনা</span><span class="card-date">০১ মে, ২০২৬</span></div>
-                <h3 class="card-title">পবিত্র বেদে শ্রম ও শ্রমজীবীর মর্যাদা</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-              </div>
-            </a>
-          <a href="article.html" class="card fade-up d3">
-              <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">বৈদিক উপাসনা</span></div>
-              <div class="card-body">
-                <div class="card-meta"><span class="card-tag">বৈদিক উপাসনা</span><span class="card-date">০৬ এপ্রিল, ২০২৬</span></div>
-                <h3 class="card-title">ওঙ্কার উপাসনা — ঈশ্বর সাধনায় উপায়</h3>
-                <div class="card-foot"><div class="card-author"><div class="card-avatar"><img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23C45000%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2236%22%20r%3D%2219%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2282%22%20rx%3D%2230%22%20ry%3D%2222%22%20fill%3D%22%23FAF8F4%22%20opacity%3D%220.9%22%2F%3E%3C%2Fsvg%3E" alt="সত্যান্বেষী" loading="lazy"/></div><span class="card-author-name">সত্যান্বেষী</span></div><svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-              </div>
-            </a>
+        <div class="quote-block fade-up">
+          <span class="quote-om" aria-hidden="true">ॐ</span>
+          <blockquote>
+            <p class="quote-sk" lang="sa">
+              विश्वानि देव सवितर्दुरितानि परासुव।<br>
+              यद् भद्रं तन्न आसुव॥
+            </p>
+            <p class="quote-bn">
+              হে সকল শুভকার্যের প্রেরক পরমেশ্বর! আমাদের সকল পাপ ও দোষ দূর করুন।<br>
+              যা কল্যাণকর তাই আমাদের দান করুন।
+            </p>
+          </blockquote>
+          <footer class="quote-source-wrap">
+            <span class="quote-source">যজুর্বেদ ৩০.৩</span>
+          </footer>
         </div>
       </div>
     </section>
 
-    <!-- ── CATEGORIES ── -->
-    <section class="section bg-alt" aria-label="বিষয়শ্রেণী">
+    <!-- ───────────────────────────────────────────────────────────
+         COMMUNITY / SOCIAL CTA
+    ─────────────────────────────────────────────────────────────── -->
+    <section class="cta-section" aria-label="সামাজিক মাধ্যম">
       <div class="container">
-        <header class="sec-header fade-up">
-          <div class="sec-eyebrow">বিষয় অনুযায়ী</div>
-          <h2 class="sec-title">বিষয়শ্রেণী</h2>
-        </header>
-        <div class="cat-grid">
-          <a href="category.html?cat=ved" class="cat-card fade-up d1"><div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h3 class="cat-name">বেদ</h3><p class="cat-count">১২০+ প্রবন্ধ</p></a>
-          <a href="category.html?cat=jeevan" class="cat-card fade-up d2"><div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3 class="cat-name">বৈদিক জীবনধারা</h3><p class="cat-count">৮৫+ প্রবন্ধ</p></a>
-          <a href="category.html?cat=itihas" class="cat-card fade-up d3"><div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 class="cat-name">ইতিহাস</h3><p class="cat-count">৬০+ প্রবন্ধ</p></a>
-          <a href="category.html?cat=bigyan" class="cat-card fade-up d1"><div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h3 class="cat-name">বিজ্ঞান</h3><p class="cat-count">৪৫+ প্রবন্ধ</p></a>
-          <a href="category.html?cat=trait" class="cat-card fade-up d2"><div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3 class="cat-name">ত্রৈতবাদ</h3><p class="cat-count">৩০+ প্রবন্ধ</p></a>
-          <a href="category.html?cat=resp" class="cat-card fade-up d3"><div class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 class="cat-name">অপপ্রচারের জবাব</h3><p class="cat-count">৫৫+ প্রবন্ধ</p></a>
-        </div>
-      </div>
-    </section>
+        <div class="cta-inner fade-up">
+          <div class="sec-eyebrow" style="justify-content:center;color:var(--c-accent-light);">সংযুক্ত থাকুন</div>
+          <h2 class="cta-title">জ্ঞানের এই যাত্রায় যোগ দিন</h2>
+          <p class="cta-desc">আমাদের সামাজিক মাধ্যমে অনুসরণ করুন এবং প্রতিদিনের বৈদিক জ্ঞান, নতুন প্রবন্ধ ও গুরুত্বপূর্ণ আলোচনার অংশ হোন।</p>
 
-    <!-- ── MISSION ── -->
-    <section class="mission fade-up" aria-label="আমাদের লক্ষ্য">
-      <div class="container mission-inner">
-        <div class="mission-symbol" aria-hidden="true">ॐ</div>
-        <div class="mission-content">
-          <div class="mission-eyebrow">আমাদের লক্ষ্য</div>
-          <h2 class="mission-title">বৈদিক জ্ঞানের আলো ছড়িয়ে দেওয়া</h2>
-          <p class="mission-text">অগ্নিবীর বাংলা বিশ্বাস করে যে বৈদিক দর্শন মানবজাতির জন্য একটি অমূল্য সম্পদ। আমাদের লক্ষ্য হলো এই জ্ঞানকে বাংলা ভাষায় সহজলভ্য করা এবং প্রতিটি মানুষের কাছে সত্যের আলো পৌঁছে দেওয়া।</p>
-          <a href="about.html" class="mission-link">আমাদের সম্পর্কে জানুন <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="social-row">
+            <a href="https://www.facebook.com/BangladeshAgniveerOfficial" class="s-btn s-fb" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+            <a href="https://t.me/agniveerbd" class="s-btn s-tg" target="_blank" rel="noopener" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg>
+              Telegram
+            </a>
+            <a href="https://www.youtube.com/c/BangladeshAgniveerOfficial" class="s-btn s-yt" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg>
+              YouTube
+            </a>
+            <a href="https://twitter.com/bdagniveer" class="s-btn s-tw" target="_blank" rel="noopener" aria-label="Twitter / X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+              Twitter
+            </a>
+          </div>
+
+          <p style="margin-top:2rem;font-family:var(--f-bn);font-size:.875rem;color:#5A4A3A;font-style:italic;">
+            সত্যের অন্বেষণে, জ্ঞানের পথে — আমরা একসাথে
+          </p>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
+
         <div>
           <div class="f-brand-name">অগ্নিবীর</div>
           <div class="f-brand-tag">সত্য প্রকাশে নির্ভীক সৈনিক</div>
           <p class="f-brand-desc">অগ্নিবীর বাংলা একটি বৈদিক জ্ঞান ও আধ্যাত্মিক প্রকাশনা মাধ্যম। বেদ, উপনিষদ, ইতিহাস ও সনাতন দর্শনের আলোকে সত্যের অনুসন্ধানে আমরা নিবেদিত।</p>
-          <div class="f-social">
-            <a href="https://www.facebook.com/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="https://t.me/agniveerbd" class="f-social-btn" aria-label="Telegram" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg></a>
-            <a href="https://www.youtube.com/c/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg></a>
-            <a href="https://twitter.com/bdagniveer" class="f-social-btn" aria-label="Twitter" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
-            <a href="https://www.instagram.com/bangladeshagniveer/" class="f-social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <div class="f-social" aria-label="সামাজিক মাধ্যম লিংক">
+            <a href="https://www.facebook.com/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://t.me/agniveerbd"                            class="f-social-btn" aria-label="Telegram" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg></a>
+            <a href="https://www.youtube.com/c/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg></a>
+            <a href="https://twitter.com/bdagniveer"                     class="f-social-btn" aria-label="Twitter" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+            <a href="https://www.instagram.com/bangladeshagniveer/"       class="f-social-btn" aria-label="Instagram" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           </div>
         </div>
+
         <div>
           <h3 class="f-col-title">বিষয়শ্রেণী</h3>
           <ul class="f-links">
-            <li><a href="category.html?cat=ved" class="f-link">বেদ</a></li>
+            <li><a href="category.html?cat=ved"    class="f-link">বেদ</a></li>
             <li><a href="category.html?cat=jeevan" class="f-link">বৈদিক জীবনধারা</a></li>
             <li><a href="category.html?cat=itihas" class="f-link">ইতিহাস</a></li>
             <li><a href="category.html?cat=bigyan" class="f-link">বিজ্ঞান</a></li>
-            <li><a href="category.html?cat=trait" class="f-link">ত্রৈতবাদ</a></li>
-            <li><a href="category.html?cat=resp" class="f-link">অপপ্রচারের জবাব</a></li>
+            <li><a href="category.html?cat=trait"  class="f-link">ত্রৈতবাদ</a></li>
+            <li><a href="category.html?cat=resp"   class="f-link">অপপ্রচারের জবাব</a></li>
           </ul>
         </div>
+
         <div>
           <h3 class="f-col-title">সম্পদ</h3>
           <ul class="f-links">
-            <li><a href="https://elibrary.agniveerbangla.org/" class="f-link" target="_blank" rel="noopener">গ্রন্থাগার</a></li>
-            <li><a href="https://vedicscriptures.in/" class="f-link" target="_blank" rel="noopener">অনলাইন বেদ</a></li>
-            <li><a href="https://arsa-parampara.blogspot.com/" class="f-link" target="_blank" rel="noopener">আর্ষ-পরম্পরা ব্লগ</a></li>
-            <li><a href="https://back2thevedas.blogspot.com/" class="f-link" target="_blank" rel="noopener">Back to the Vedas</a></li>
+            <li><a href="https://elibrary.agniveerbangla.org/"          class="f-link" target="_blank" rel="noopener">গ্রন্থাগার</a></li>
+            <li><a href="https://vedicscriptures.in/"                   class="f-link" target="_blank" rel="noopener">অনলাইন বেদ</a></li>
+            <li><a href="https://arsa-parampara.blogspot.com/"          class="f-link" target="_blank" rel="noopener">আর্ষ-পরম্পরা ব্লগ</a></li>
+            <li><a href="https://back2thevedas.blogspot.com/"           class="f-link" target="_blank" rel="noopener">Back to the Vedas</a></li>
             <li><a href="https://sites.google.com/view/agniveercontent" class="f-link" target="_blank" rel="noopener">অগ্নিবীর কন্টেন্ট</a></li>
           </ul>
         </div>
+
         <div>
           <h3 class="f-col-title">সাইট</h3>
           <ul class="f-links">
-            <li><a href="about.html" class="f-link">আমাদের সম্পর্কে</a></li>
+            <li><a href="about.html"   class="f-link">আমাদের সম্পর্কে</a></li>
             <li><a href="contact.html" class="f-link">যোগাযোগ</a></li>
             <li><a href="category.html" class="f-link">সকল প্রবন্ধ</a></li>
-            <li><a href="search.html" class="f-link">অনুসন্ধান</a></li>
+            <li><a href="about.html" class="f-link">মিশন ও লক্ষ্য</a></li>
           </ul>
         </div>
+
       </div>
+
       <div class="f-divider"></div>
+
       <div class="f-bottom">
         <p class="f-copy">© ২০২৬ অগ্নিবীর বাংলা। সর্বস্বত্ব সংরক্ষিত।</p>
         <ul class="f-btm-links">
@@ -350,11 +654,21 @@
       </div>
     </div>
   </footer>
-  <button id="back-to-top" class="btt" aria-label="উপরে যান"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+  <!-- ═══ BACK TO TOP ════════════════════════════════════════════ -->
+  <button id="back-to-top" class="btt" aria-label="উপরে যান">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ═══ COOKIE NOTICE ══════════════════════════════════════════ -->
   <div id="cookie-notice" class="cookie" role="dialog" aria-label="কুকি সম্মতি">
-    <p>আমরা আপনার ব্রাউজিং অভিজ্ঞতা উন্নত করতে কুকি ব্যবহার করি।</p>
-    <div class="cookie-btns"><button id="cookie-ok" class="cookie-ok">গ্রহণ করুন</button><button id="cookie-no" class="cookie-no">বাতিল</button></div>
+    <p>আমরা আপনার ব্রাউজিং অভিজ্ঞতা উন্নত করতে কুকি ব্যবহার করি। সাইট ব্যবহার অব্যাহত রেখে আপনি আমাদের নীতিতে সম্মত হচ্ছেন।</p>
+    <div class="cookie-btns">
+      <button id="cookie-ok" class="cookie-ok">গ্রহণ করুন</button>
+      <button id="cookie-no" class="cookie-no">বাতিল</button>
+    </div>
   </div>
+
   <script src="main.js"></script>
 </body>
 </html>

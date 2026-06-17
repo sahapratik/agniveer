@@ -1,117 +1,545 @@
 <!DOCTYPE html>
 <html lang="bn" dir="ltr">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="অগ্নিবীর বাংলা — বেদ ও সনাতন দর্শনের আলোকে সত্যের অনুসন্ধানে নিবেদিত একটি বৈদিক জ্ঞান প্রকাশনা মাধ্যম।"/>
-  <meta property="og:title" content="আমাদের সম্পর্কে | অগ্নিবীর বাংলা"/><meta property="og:type" content="website"/>
-  <meta name="theme-color" content="#C45000"/>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="অগ্নিবীর বাংলা সম্পর্কে — আমাদের মিশন, লক্ষ্য, দলের পরিচয় এবং বৈদিক জ্ঞান প্রচারের এই যাত্রার ইতিহাস।" />
+  <meta property="og:title" content="আমাদের সম্পর্কে | অগ্নিবীর বাংলা" />
+  <meta property="og:type"  content="website" />
+  <meta name="theme-color" content="#C45000" />
   <title>আমাদের সম্পর্কে | অগ্নিবীর বাংলা</title>
-  <link rel="stylesheet" href="styles.css"/>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── About-page-specific ── */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-12);
+      align-items: center;
+    }
+    .mission-visual {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      min-height: 420px;
+      background: linear-gradient(145deg, #2A1005, #180900);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mission-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 75% 65% at 50% 80%, rgba(196,80,0,0.22) 0%, transparent 65%);
+    }
+    .mission-om {
+      font-family: var(--f-sk);
+      font-size: 14rem;
+      color: rgba(184,134,11,0.12);
+      line-height: 1;
+      position: absolute;
+      user-select: none;
+    }
+    .mission-inner-text {
+      position: relative; z-index: 1;
+      text-align: center; padding: var(--sp-8);
+    }
+    .mission-inner-text .big-quote {
+      font-family: var(--f-bn);
+      font-size: var(--ts-2xl);
+      font-weight: 600;
+      color: #FDEFD5;
+      line-height: 1.5;
+      margin-bottom: var(--sp-5);
+    }
+    .mission-inner-text .big-quote-ref {
+      font-family: var(--f-en);
+      font-size: var(--ts-xs);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+    }
+    .mission-text h2 {
+      font-family: var(--f-bn); font-size: var(--ts-3xl); font-weight: 600;
+      color: var(--c-heading); line-height: 1.3; margin-bottom: var(--sp-5);
+    }
+    .mission-text p {
+      font-family: var(--f-bn); font-size: var(--ts-md);
+      color: var(--c-text-muted); line-height: 2.0; margin-bottom: var(--sp-5);
+    }
+    .mission-text .highlight {
+      background: linear-gradient(135deg, #FFF8F2, #FAF4EC);
+      border-left: 4px solid var(--c-primary);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: var(--sp-4) var(--sp-5);
+      font-family: var(--f-bn); font-size: var(--ts-base);
+      color: var(--c-heading); line-height: 1.85; font-weight: 600;
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-5);
+    }
+    .principle-card {
+      padding: var(--sp-6);
+      border-radius: var(--r-md);
+      background: var(--c-bg-card);
+      border: 1px solid var(--c-border);
+      box-shadow: var(--shadow-card);
+      transition: transform var(--dur-normal), box-shadow var(--dur-normal);
+    }
+    .principle-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hov); }
+    .principle-number {
+      font-family: var(--f-en); font-size: var(--ts-4xl); font-weight: 700;
+      color: rgba(196,80,0,.12); line-height: 1; margin-bottom: var(--sp-3);
+    }
+    .principle-title {
+      font-family: var(--f-bn); font-size: var(--ts-lg); font-weight: 600;
+      color: var(--c-heading); margin-bottom: var(--sp-3);
+    }
+    .principle-desc {
+      font-family: var(--f-bn); font-size: var(--ts-sm);
+      color: var(--c-text-muted); line-height: 1.85;
+    }
+    .journey-timeline {
+      position: relative;
+      padding-left: var(--sp-10);
+    }
+    .journey-timeline::before {
+      content: ''; position: absolute; left: 16px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--c-primary), transparent);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: var(--sp-10);
+    }
+    .timeline-item::before {
+      content: ''; position: absolute; left: calc(-2.5rem - 1px);
+      top: 6px; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--c-primary); border: 3px solid var(--c-bg);
+      box-shadow: 0 0 0 2px var(--c-primary);
+    }
+    .timeline-year {
+      font-family: var(--f-en); font-size: var(--ts-xs); font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--c-primary);
+      margin-bottom: var(--sp-2);
+    }
+    .timeline-title {
+      font-family: var(--f-bn); font-size: var(--ts-xl); font-weight: 600;
+      color: var(--c-heading); margin-bottom: var(--sp-3);
+    }
+    .timeline-desc {
+      font-family: var(--f-bn); font-size: var(--ts-base);
+      color: var(--c-text-muted); line-height: 1.85;
+    }
+    @media (max-width: 768px) {
+      .mission-grid { grid-template-columns: 1fr; }
+      .principles-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1024px) {
+      .principles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
+
 <body class="has-dark-hero">
   <a href="#main-content" class="skip-link">প্রধান বিষয়বস্তুতে যান</a>
-  <div class="read-progress" aria-hidden="true"><div class="read-progress-bar" id="reading-progress-bar"></div></div>
+
+  <div class="read-progress" aria-hidden="true">
+    <div class="read-progress-bar" id="reading-progress-bar"></div>
+  </div>
+
+  <!-- ═══ NAV ═══════════════════════════════════════════════════ -->
   <nav id="main-nav" class="nav nav-transparent" role="navigation" aria-label="প্রধান নেভিগেশন">
     <div class="container nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="অগ্নিবীর বাংলা"><svg class="nav-logo-icon" viewBox="0 0 36 44" fill="none" aria-hidden="true"><path d="M18 2C18 2 5 16 5 27C5 34.18 10.82 40 18 40C25.18 40 31 34.18 31 27C31 16 18 2 18 2Z" fill="currentColor" opacity="0.85"/><path d="M18 10C18 10 10 20 10 27C10 31.42 13.58 35 18 35C22.42 35 26 31.42 26 27C26 20 18 10 18 10Z" fill="white" opacity="0.18"/><path d="M18 17C18 17 13 23 13 27.5C13 30.54 15.24 33 18 33C20.76 33 23 30.54 23 27.5C23 23 18 17 18 17Z" fill="white" opacity="0.28"/><ellipse cx="18" cy="42" rx="2.5" ry="1.2" fill="currentColor" opacity="0.3"/></svg><span class="nav-logo-text">অগ্নিবীর</span></a>
+      <a href="index.html" class="nav-logo" aria-label="অগ্নিবীর বাংলা">
+        <svg class="nav-logo-icon" viewBox="0 0 36 44" fill="none" aria-hidden="true">
+          <path d="M18 2C18 2 5 16 5 27C5 34.18 10.82 40 18 40C25.18 40 31 34.18 31 27C31 16 18 2 18 2Z" fill="currentColor" opacity="0.88"/>
+          <path d="M18 10C18 10 10 20 10 27C10 31.42 13.58 35 18 35C22.42 35 26 31.42 26 27C26 20 18 10 18 10Z" fill="white" opacity="0.18"/>
+          <path d="M18 17C18 17 13 23 13 27.5C13 30.54 15.24 33 18 33C20.76 33 23 30.54 23 27.5C23 23 18 17 18 17Z" fill="white" opacity="0.28"/>
+          <ellipse cx="18" cy="42" rx="2.5" ry="1.2" fill="currentColor" opacity="0.3"/>
+        </svg>
+        <span class="nav-logo-text">অগ্নিবীর</span>
+      </a>
       <ul class="nav-links" role="list">
-        <li><a href="index.html" class="nav-link">হোম</a></li>
-        <li><a href="category.html?cat=ved" class="nav-link">বেদ</a></li>
+        <li><a href="index.html"               class="nav-link">হোম</a></li>
+        <li><a href="category.html?cat=ved"    class="nav-link">বেদ</a></li>
         <li><a href="category.html?cat=jeevan" class="nav-link">বৈদিক জীবনধারা</a></li>
         <li><a href="category.html?cat=itihas" class="nav-link">ইতিহাস</a></li>
         <li><a href="category.html?cat=bigyan" class="nav-link">বিজ্ঞান</a></li>
-        <li><a href="category.html?cat=trait" class="nav-link">ত্রৈতবাদ</a></li>
-        <li><a href="category.html?cat=resp" class="nav-link">অপপ্রচারের জবাব</a></li>
-        <li><a href="about.html" class="nav-link active">আমাদের সম্পর্কে</a></li>
+        <li><a href="category.html?cat=trait"  class="nav-link">ত্রৈতবাদ</a></li>
+        <li><a href="category.html?cat=resp"   class="nav-link">অপপ্রচারের জবাব</a></li>
+        <li><a href="about.html"               class="nav-link active">আমাদের সম্পর্কে</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="search.html" class="nav-icon-btn" aria-label="অনুসন্ধান"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
-        <button id="nav-hamburger" class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="মেনু খুলুন"><span></span><span></span><span></span></button>
+        <a href="search.html" class="nav-icon-btn" aria-label="অনুসন্ধান">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </a>
+        <button id="nav-hamburger" class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="মেনু">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
+
   <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="নেভিগেশন মেনু">
     <ul class="mobile-menu-links" role="list">
-      <li><a href="index.html" class="mobile-menu-link">হোম</a></li>
-      <li><a href="category.html?cat=ved" class="mobile-menu-link">বেদ</a></li>
+      <li><a href="index.html"               class="mobile-menu-link">হোম</a></li>
+      <li><a href="category.html?cat=ved"    class="mobile-menu-link">বেদ</a></li>
       <li><a href="category.html?cat=jeevan" class="mobile-menu-link">বৈদিক জীবনধারা</a></li>
       <li><a href="category.html?cat=itihas" class="mobile-menu-link">ইতিহাস</a></li>
       <li><a href="category.html?cat=bigyan" class="mobile-menu-link">বিজ্ঞান</a></li>
-      <li><a href="category.html?cat=trait" class="mobile-menu-link">ত্রৈতবাদ</a></li>
-      <li><a href="category.html?cat=resp" class="mobile-menu-link">অপপ্রচারের জবাব</a></li>
-      <li><a href="about.html" class="mobile-menu-link">আমাদের সম্পর্কে</a></li>
-      <li><a href="contact.html" class="mobile-menu-link">যোগাযোগ</a></li>
+      <li><a href="category.html?cat=trait"  class="mobile-menu-link">ত্রৈতবাদ</a></li>
+      <li><a href="category.html?cat=resp"   class="mobile-menu-link">অপপ্রচারের জবাব</a></li>
+      <li><a href="about.html"               class="mobile-menu-link">আমাদের সম্পর্কে</a></li>
+      <li><a href="contact.html"             class="mobile-menu-link">যোগাযোগ</a></li>
       <li><a href="https://elibrary.agniveerbangla.org/" class="mobile-menu-link" target="_blank" rel="noopener">🔴 গ্রন্থাগার</a></li>
     </ul>
   </div>
+
+  <!-- ═══ ABOUT HERO ═════════════════════════════════════════════ -->
   <main id="main-content">
-    <header class="page-hero" aria-label="পৃষ্ঠার শিরোনাম">
+    <header class="about-hero" aria-label="আমাদের সম্পর্কে">
       <div style="position:absolute;inset:0;background:linear-gradient(145deg,#1E0D04,#0F0602);z-index:0;"></div>
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 80%,rgba(196,80,0,0.22),transparent 60%);z-index:0;"></div>
-      <div style="position:absolute;right:5%;top:50%;transform:translateY(-50%);font-family:var(--f-sk);font-size:18rem;color:rgba(184,134,11,0.07);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">ॐ</div>
-      <div class="container" style="position:relative;z-index:1;padding-top:calc(var(--nav-h) + 4rem);padding-bottom:4rem;text-align:center;">
-        <div class="art-cat-badge fade-up">আমাদের সম্পর্কে</div>
-        <h1 class="art-title fade-up">অগ্নিবীর বাংলা</h1>
-        <p style="font-family:var(--f-bn);font-size:1.2rem;color:#B8A090;max-width:600px;margin:1.5rem auto 0;line-height:1.9;" class="fade-up">সত্য প্রকাশে নির্ভীক সৈনিক</p>
+      <!-- Subtle decorative lines -->
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 120px,rgba(184,134,11,0.02) 120px,rgba(184,134,11,0.02) 121px);z-index:0;"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 90%,rgba(196,80,0,0.18) 0%,transparent 60%);z-index:0;"></div>
+
+      <div class="container about-hero-inner">
+        <div class="sec-eyebrow" style="justify-content:center;color:var(--c-accent-light);margin-bottom:var(--sp-5);opacity:0;animation:fadeUp 800ms var(--ease-out) 0.2s forwards;">
+          আমাদের সম্পর্কে
+        </div>
+        <h1 class="about-title" style="opacity:0;animation:fadeUp 800ms var(--ease-out) 0.35s forwards;">
+          সত্যের অন্বেষণে<br>নির্ভীক প্রতিশ্রুতি
+        </h1>
+        <p class="about-sub" style="opacity:0;animation:fadeUp 800ms var(--ease-out) 0.5s forwards;">
+          অগ্নিবীর বাংলা হলো বৈদিক জ্ঞানের একটি বাংলা প্রকাশনা মাধ্যম, যেখানে ধর্ম, দর্শন ও সত্যের আলোকে বাংলাভাষী পাঠকদের সেবা দেওয়াই আমাদের একমাত্র লক্ষ্য।
+        </p>
       </div>
     </header>
 
-    <section class="section">
-      <div class="container" style="max-width:860px;">
-        <div class="art-body fade-up">
-          <h2>আমরা কারা?</h2>
-          <p>অগ্নিবীর বাংলা একটি বৈদিক জ্ঞান ও আধ্যাত্মিক প্রকাশনা মাধ্যম। আমরা বিশ্বাস করি যে বেদ, উপনিষদ ও সনাতন দর্শনে মানবজাতির জন্য অমূল্য জ্ঞানভান্ডার রয়েছে। আমাদের লক্ষ্য হলো এই জ্ঞানকে বাংলা ভাষায় সহজলভ্য ও সুবোধ্য করে তোলা।</p>
-          <p>আমরা ভারতীয় সংস্থা অগ্নিবীরের বাংলা শাখা। মহর্ষি দয়ানন্দ সরস্বতীর আর্ষ-পরম্পরা অনুসরণ করে আমরা বেদের আলোয় সত্যের অনুসন্ধান করি।</p>
+    <!-- ═══ STATS SECTION ════════════════════════════════════════ -->
+    <section class="section section-alt" aria-label="পরিসংখ্যান">
+      <div class="container">
+        <div class="stats-grid">
 
-          <h2>আমাদের মিশন ও লক্ষ্য</h2>
-          <ul style="padding-left:1.5rem;line-height:2.2;color:var(--c-text);">
-            <li>বাংলা ভাষায় বৈদিক জ্ঞান প্রচার ও প্রসার করা</li>
-            <li>মিথ্যা ও অপপ্রচারের বিরুদ্ধে তথ্যভিত্তিক জবাব দেওয়া</li>
-            <li>সনাতন ধর্মের প্রকৃত রূপ উপস্থাপন করা</li>
-            <li>বৈদিক দর্শনে বিজ্ঞান ও যুক্তির সমন্বয় দেখানো</li>
-            <li>সকল মানুষের কাছে সত্যের আলো পৌঁছে দেওয়া</li>
-          </ul>
-
-          <h2>আমাদের দর্শন</h2>
-          <blockquote class="q-block">
-            <p class="q-sk" lang="sa">सत्यं वद। धर्मं चर।</p>
-            <p class="q-tr">সত্য বলো। ধর্মাচরণ করো।</p>
-            <span class="q-ref">তৈত্তিরীয় উপনিষদ</span>
-          </blockquote>
-          <p>আমরা বিশ্বাস করি, সত্যের সন্ধানই মানুষের সর্বোচ্চ ধর্ম। আমরা কোনো ব্যক্তি বা গোষ্ঠীর বিরোধিতায় নই — আমরা কেবল সত্যের পক্ষে।</p>
-
-          <h2>যা আমরা করি না</h2>
-          <ul style="padding-left:1.5rem;line-height:2.2;color:var(--c-text);">
-            <li>কোনো ধর্মীয় বিদ্বেষ ছড়াই না</li>
-            <li>অপ্রমাণিত তথ্য প্রকাশ করি না</li>
-            <li>রাজনৈতিক দলের পক্ষে কাজ করি না</li>
-            <li>আর্থিক লাভের জন্য বিজ্ঞাপন গ্রহণ করি না</li>
-          </ul>
-
-          <h2>আমাদের সাথে যোগাযোগ করুন</h2>
-          <p>আপনার যেকোনো প্রশ্ন, পরামর্শ বা সহযোগিতার প্রস্তাব নিয়ে আমাদের <a href="contact.html" style="color:var(--c-primary);">যোগাযোগ পৃষ্ঠায়</a> আসুন।</p>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:3rem;">
-          <div class="fade-up" style="background:var(--c-bg-alt);border:1px solid var(--c-border);border-radius:12px;padding:1.75rem;text-align:center;">
-            <div style="font-family:var(--f-en);font-size:2.5rem;font-weight:700;color:var(--c-primary);">৫০০+</div>
-            <div style="font-family:var(--f-bn);font-size:.95rem;color:var(--c-text-muted);margin-top:.5rem;">প্রকাশিত প্রবন্ধ</div>
+          <div class="stat-card fade-up d1">
+            <div class="stat-num" data-target="280" data-suffix="+">০</div>
+            <div class="stat-lbl">প্রকাশিত প্রবন্ধ</div>
           </div>
-          <div class="fade-up d2" style="background:var(--c-bg-alt);border:1px solid var(--c-border);border-radius:12px;padding:1.75rem;text-align:center;">
-            <div style="font-family:var(--f-en);font-size:2.5rem;font-weight:700;color:var(--c-primary);">৫০K+</div>
-            <div style="font-family:var(--f-bn);font-size:.95rem;color:var(--c-text-muted);margin-top:.5rem;">মাসিক পাঠক</div>
+
+          <div class="stat-card fade-up d2">
+            <div class="stat-num" data-target="50000" data-suffix="+">০</div>
+            <div class="stat-lbl">মাসিক পাঠক</div>
           </div>
-          <div class="fade-up d3" style="background:var(--c-bg-alt);border:1px solid var(--c-border);border-radius:12px;padding:1.75rem;text-align:center;">
-            <div style="font-family:var(--f-en);font-size:2.5rem;font-weight:700;color:var(--c-primary);">৮+</div>
-            <div style="font-family:var(--f-bn);font-size:.95rem;color:var(--c-text-muted);margin-top:.5rem;">বছরের যাত্রা</div>
+
+          <div class="stat-card fade-up d3">
+            <div class="stat-num" data-target="8" data-suffix="টি">০</div>
+            <div class="stat-lbl">বিষয়শ্রেণী</div>
           </div>
+
+          <div class="stat-card fade-up d4">
+            <div class="stat-num" data-target="6" data-suffix="+">০</div>
+            <div class="stat-lbl">বছরের অভিজ্ঞতা</div>
+          </div>
+
         </div>
       </div>
     </section>
+
+    <!-- ═══ MISSION & VISION ══════════════════════════════════════ -->
+    <section class="section" aria-label="মিশন ও দর্শন">
+      <div class="container">
+
+        <header class="sec-header fade-up">
+          <div class="sec-eyebrow">মিশন ও দর্শন</div>
+          <h2 class="sec-title">কেন অগ্নিবীর?</h2>
+          <p class="sec-desc">সত্যের আলোকে জ্ঞানের প্রসার — এই একটি লক্ষ্য নিয়েই আমাদের যাত্রা শুরু</p>
+        </header>
+
+        <div class="mission-grid fade-up">
+
+          <!-- Visual panel -->
+          <div class="mission-visual">
+            <div class="mission-om" aria-hidden="true">ॐ</div>
+            <div class="mission-inner-text">
+              <p class="big-quote">
+                "আ নো ভদ্রাঃ ক্রতবো যন্তু বিশ্বতো"
+              </p>
+              <p class="big-quote-ref">ঋগ্বেদ ১.৮৯.১</p>
+              <p style="font-family:var(--f-bn);font-size:var(--ts-sm);color:#8A7A6A;margin-top:var(--sp-4);font-style:italic;">
+                (সকল দিক থেকে আমাদের কাছে শুভ চিন্তা আসুক।)
+              </p>
+            </div>
+          </div>
+
+          <!-- Text panel -->
+          <div class="mission-text">
+            <h2>আমরা কারা এবং কেন এই কাজ করি?</h2>
+            <p>
+              অগ্নিবীর বাংলা একটি স্বেচ্ছাসেবী জ্ঞান প্রচার মাধ্যম। আমাদের লক্ষ্য একটাই — বাংলা ভাষায় বৈদিক জ্ঞান, সনাতন দর্শন ও ভারতীয় ইতিহাসের সত্যনিষ্ঠ বিশ্লেষণ উপস্থাপন করা।
+            </p>
+            <p>
+              আমরা বিশ্বাস করি যে মিথ্যা তথ্য ও অপপ্রচারের বিরুদ্ধে সবচেয়ে শক্তিশালী অস্ত্র হলো জ্ঞান ও সত্য। "অগ্নিবীর" শব্দের অর্থ হলো — অগ্নির বীর, অর্থাৎ যে সত্যের শিখাকে জ্বালিয়ে রাখে।
+            </p>
+            <div class="highlight">
+              আমাদের প্রতিটি প্রবন্ধ বেদ, উপনিষদ ও প্রামাণিক শাস্ত্রের আলোকে গবেষণা করে লেখা হয়। আমরা কোনো বিশেষ রাজনৈতিক বা ব্যবসায়িক স্বার্থের সাথে যুক্ত নই।
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ WHAT WE COVER ════════════════════════════════════════ -->
+    <section class="section section-alt" aria-label="আমাদের বিষয়বস্তু">
+      <div class="container">
+
+        <header class="sec-header fade-up">
+          <div class="sec-eyebrow">জ্ঞানের ক্ষেত্র</div>
+          <h2 class="sec-title">আমরা কোন বিষয় নিয়ে লিখি?</h2>
+        </header>
+
+        <div class="principles-grid">
+
+          <div class="principle-card fade-up d1">
+            <div class="principle-number">০১</div>
+            <div class="principle-title">বেদ ও বৈদিক সাহিত্য</div>
+            <p class="principle-desc">চতুর্বেদ, উপনিষদ, আরণ্যক ও ব্রাহ্মণ গ্রন্থের বাংলায় বিশ্লেষণ এবং আধুনিক জীবনে তাদের প্রাসঙ্গিকতা।</p>
+          </div>
+
+          <div class="principle-card fade-up d2">
+            <div class="principle-number">০২</div>
+            <div class="principle-title">ভারতীয় ইতিহাস ও সংস্কৃতি</div>
+            <p class="principle-desc">প্রামাণিক উৎস থেকে ভারতীয় ইতিহাসের সত্যনিষ্ঠ উপস্থাপন, ঔপনিবেশিক বিকৃতির বিরুদ্ধে নথিভিত্তিক বিশ্লেষণ।</p>
+          </div>
+
+          <div class="principle-card fade-up d3">
+            <div class="principle-number">০৩</div>
+            <div class="principle-title">অপপ্রচারের জবাব</div>
+            <p class="principle-desc">সনাতন ধর্ম ও হিন্দু দর্শন সম্পর্কে প্রচলিত মিথ্যা তথ্য ও ভুল ব্যাখ্যার শাস্ত্রীয় উত্তর।</p>
+          </div>
+
+          <div class="principle-card fade-up d4">
+            <div class="principle-number">০৪</div>
+            <div class="principle-title">বৈদিক জীবনদর্শন</div>
+            <p class="principle-desc">পরিবার, সমাজ, পরিবেশ, শ্রম ও স্বাস্থ্য সম্পর্কে বেদের নির্দেশনা এবং তা আধুনিক জীবনে প্রয়োগের পথ।</p>
+          </div>
+
+          <div class="principle-card fade-up d1">
+            <div class="principle-number">০৫</div>
+            <div class="principle-title">আধ্যাত্মিক সাধনা</div>
+            <p class="principle-desc">যোগ, ধ্যান, উপাসনা ও আত্মশুদ্ধির বৈদিক পদ্ধতি এবং দৈনন্দিন আধ্যাত্মিক চর্চার পথনির্দেশ।</p>
+          </div>
+
+          <div class="principle-card fade-up d2">
+            <div class="principle-number">০৬</div>
+            <div class="principle-title">ডিজিটাল গ্রন্থাগার</div>
+            <p class="principle-desc">বৈদিক গ্রন্থ, পুরাণ ও সংস্কৃত সাহিত্যের বাংলা অনুবাদ-সহ পিডিএফ সংগ্রহ বিনামূল্যে প্রদান।</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ JOURNEY / TIMELINE ════════════════════════════════════ -->
+    <section class="section" aria-label="আমাদের যাত্রা">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:start;" class="trending-two-col">
+
+          <div class="fade-up">
+            <header style="margin-bottom:var(--sp-10);">
+              <div class="sec-eyebrow" style="justify-content:flex-start;">আমাদের যাত্রা</div>
+              <h2 class="sec-title" style="text-align:left;">কীভাবে শুরু হয়েছিল</h2>
+              <p class="sec-desc" style="text-align:left;max-width:100%;">একটি ব্লগ থেকে পূর্ণাঙ্গ জ্ঞান প্রকাশনায় — এই যাত্রার ইতিহাস।</p>
+            </header>
+
+            <div class="journey-timeline">
+
+              <div class="timeline-item fade-up d1">
+                <div class="timeline-year">২০১৮</div>
+                <h3 class="timeline-title">যাত্রার সূচনা</h3>
+                <p class="timeline-desc">একজন বৈদিক দর্শনে আগ্রহী তরুণ গবেষকের উদ্যোগে Blogger-এ একটি ছোট্ট বাংলা ব্লগ হিসেবে অগ্নিবীর বাংলার যাত্রা শুরু। লক্ষ্য ছিল — বাংলায় বেদের সহজ ব্যাখ্যা পৌঁছে দেওয়া।</p>
+              </div>
+
+              <div class="timeline-item fade-up d2">
+                <div class="timeline-year">২০১৯–২০</div>
+                <h3 class="timeline-title">পাঠকগোষ্ঠী গড়ে ওঠা</h3>
+                <p class="timeline-desc">ধীরে ধীরে পাঠকসংখ্যা বাড়তে থাকে। Facebook ও Telegram-এ গ্রুপ গঠিত হয়। প্রতিদিনের বেদবাণী সিরিজ অত্যন্ত জনপ্রিয় হয়।</p>
+              </div>
+
+              <div class="timeline-item fade-up d3">
+                <div class="timeline-year">২০২১–২২</div>
+                <h3 class="timeline-title">ই-লাইব্রেরি ও YouTube</h3>
+                <p class="timeline-desc">বৈদিক গ্রন্থের ডিজিটাল লাইব্রেরি চালু হয়। YouTube চ্যানেলে বাংলায় বৈদিক জ্ঞানের ভিডিও প্রকাশ শুরু।</p>
+              </div>
+
+              <div class="timeline-item fade-up d4">
+                <div class="timeline-year">২০২৩–আজ</div>
+                <h3 class="timeline-title">পূর্ণাঙ্গ মাধ্যম</h3>
+                <p class="timeline-desc">অগ্নিবীর বাংলা এখন বাংলাভাষীদের জন্য বৈদিক জ্ঞানের সবচেয়ে বিশ্বস্ত অনলাইন উৎসগুলোর একটি হিসেবে স্বীকৃত।</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Values / principles list -->
+          <div class="fade-up d1">
+            <header style="margin-bottom:var(--sp-10);">
+              <div class="sec-eyebrow" style="justify-content:flex-start;">আমাদের মূল্যবোধ</div>
+              <h2 class="sec-title" style="text-align:left;">যে নীতিতে আমরা বিশ্বাসী</h2>
+            </header>
+
+            <div class="vals-grid">
+              <div class="val-card fade-up d1">
+                <div class="val-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="val-title">সত্যনিষ্ঠতা</div>
+                <p class="val-desc">প্রতিটি দাবি প্রামাণিক বৈদিক উৎস থেকে যাচাই করে উপস্থাপন করা হয়।</p>
+              </div>
+
+              <div class="val-card fade-up d2">
+                <div class="val-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="val-title">অন্তর্ভুক্তি</div>
+                <p class="val-desc">বেদের মতে সকল মানুষের জ্ঞান লাভের সমান অধিকার — এটিই আমাদের ভিত্তি।</p>
+              </div>
+
+              <div class="val-card fade-up d3">
+                <div class="val-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div class="val-title">স্বাধীনতা</div>
+                <p class="val-desc">কোনো রাজনৈতিক, বাণিজ্যিক বা সাম্প্রদায়িক স্বার্থ ছাড়াই নিরপেক্ষ জ্ঞান পরিবেশন।</p>
+              </div>
+
+              <div class="val-card fade-up d4">
+                <div class="val-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="val-title">সেবা</div>
+                <p class="val-desc">জ্ঞান মানুষের সেবায় নিবেদিত হোক — এই বৈদিক আদর্শেই আমরা পরিচালিত।</p>
+              </div>
+
+              <div class="val-card fade-up d1">
+                <div class="val-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>
+                </div>
+                <div class="val-title">শ্রেষ্ঠত্ব</div>
+                <p class="val-desc">গুণমানের সাথে আপোষ না করে সর্বোচ্চ মানের বিশ্লেষণ ও উপস্থাপনার প্রতিশ্রুতি।</p>
+              </div>
+
+              <div class="val-card fade-up d2">
+                <div class="val-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="val-title">ধারাবাহিকতা</div>
+                <p class="val-desc">নিয়মিত নতুন বিষয়বস্তু প্রকাশ এবং পুরনো প্রবন্ধের আপডেটের মাধ্যমে পাঠকের সাথে অবিচ্ছিন্ন সংযোগ।</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FULL QUOTE SECTION ════════════════════════════════════ -->
+    <section class="quote-section" aria-label="বৈদিক বাণী">
+      <div class="container">
+        <div class="quote-block fade-up">
+          <span class="quote-om" aria-hidden="true">ॐ</span>
+          <blockquote>
+            <p class="quote-sk" lang="sa">
+              तमसो मा ज्योतिर्गमय।<br>
+              मृत्योर्मा अमृतं गमय॥
+            </p>
+            <p class="quote-bn">
+              অন্ধকার থেকে আলোর দিকে নিয়ে যাও।<br>
+              মৃত্যু থেকে অমৃতের দিকে নিয়ে যাও।
+            </p>
+          </blockquote>
+          <footer class="quote-source-wrap">
+            <span class="quote-source">বৃহদারণ্যক উপনিষদ ১.৩.২৮</span>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══════════════════════════════════════════════════ -->
+    <section class="section section-alt" aria-label="যোগ দিন">
+      <div class="container" style="text-align:center;">
+        <header class="sec-header fade-up">
+          <div class="sec-eyebrow">যুক্ত হোন</div>
+          <h2 class="sec-title">এই জ্ঞান-যাত্রার অংশ হোন</h2>
+          <p class="sec-desc">আমাদের পাঠকসমাজে যোগ দিন এবং নিয়মিত নতুন জ্ঞানের সাথে পরিচিত হন।</p>
+        </header>
+        <div style="display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap;" class="fade-up">
+          <a href="category.html" class="btn btn-primary">প্রবন্ধ পড়ুন</a>
+          <a href="contact.html"  class="btn btn-outline">আমাদের লিখুন</a>
+          <a href="https://elibrary.agniveerbangla.org/" class="btn btn-ghost" style="color:var(--c-text-muted);border-color:var(--c-border);" target="_blank" rel="noopener">গ্রন্থাগার</a>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer class="footer" role="contentinfo"><div class="container"><div class="footer-grid"><div><div class="f-brand-name">অগ্নিবীর</div><div class="f-brand-tag">সত্য প্রকাশে নির্ভীক সৈনিক</div><p class="f-brand-desc">অগ্নিবীর বাংলা একটি বৈদিক জ্ঞান ও আধ্যাত্মিক প্রকাশনা মাধ্যম।</p><div class="f-social"><a href="https://www.facebook.com/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://t.me/agniveerbd" class="f-social-btn" aria-label="Telegram" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg></a><a href="https://www.youtube.com/c/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg></a><a href="https://twitter.com/bdagniveer" class="f-social-btn" aria-label="Twitter" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a></div></div><div><h3 class="f-col-title">বিষয়শ্রেণী</h3><ul class="f-links"><li><a href="category.html?cat=ved" class="f-link">বেদ</a></li><li><a href="category.html?cat=jeevan" class="f-link">বৈদিক জীবনধারা</a></li><li><a href="category.html?cat=itihas" class="f-link">ইতিহাস</a></li><li><a href="category.html?cat=bigyan" class="f-link">বিজ্ঞান</a></li><li><a href="category.html?cat=trait" class="f-link">ত্রৈতবাদ</a></li><li><a href="category.html?cat=resp" class="f-link">অপপ্রচারের জবাব</a></li></ul></div><div><h3 class="f-col-title">সম্পদ</h3><ul class="f-links"><li><a href="https://elibrary.agniveerbangla.org/" class="f-link" target="_blank" rel="noopener">গ্রন্থাগার</a></li><li><a href="https://vedicscriptures.in/" class="f-link" target="_blank" rel="noopener">অনলাইন বেদ</a></li><li><a href="https://arsa-parampara.blogspot.com/" class="f-link" target="_blank" rel="noopener">আর্ষ-পরম্পরা ব্লগ</a></li></ul></div><div><h3 class="f-col-title">সাইট</h3><ul class="f-links"><li><a href="about.html" class="f-link">আমাদের সম্পর্কে</a></li><li><a href="contact.html" class="f-link">যোগাযোগ</a></li><li><a href="category.html" class="f-link">সকল প্রবন্ধ</a></li><li><a href="search.html" class="f-link">অনুসন্ধান</a></li></ul></div></div><div class="f-divider"></div><div class="f-bottom"><p class="f-copy">© ২০২৬ অগ্নিবীর বাংলা। সর্বস্বত্ব সংরক্ষিত।</p><ul class="f-btm-links"><li><a href="#" class="f-btm-link">গোপনীয়তা নীতি</a></li><li><a href="#" class="f-btm-link">ব্যবহারের শর্তাবলী</a></li></ul></div><div class="f-crafted"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Crafted by <strong>Pratik Studios</strong></div></div></footer>
-  <button id="back-to-top" class="btt" aria-label="উপরে যান"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-  <div id="cookie-notice" class="cookie" role="dialog"><p>আমরা আপনার ব্রাউজিং অভিজ্ঞতা উন্নত করতে কুকি ব্যবহার করি।</p><div class="cookie-btns"><button id="cookie-ok" class="cookie-ok">গ্রহণ করুন</button><button id="cookie-no" class="cookie-no">বাতিল</button></div></div>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="f-brand-name">অগ্নিবীর</div>
+          <div class="f-brand-tag">সত্য প্রকাশে নির্ভীক সৈনিক</div>
+          <p class="f-brand-desc">বেদ, উপনিষদ, ইতিহাস ও সনাতন দর্শনের আলোকে সত্যের অনুসন্ধানে নিবেদিত।</p>
+          <div class="f-social" aria-label="সামাজিক মাধ্যম">
+            <a href="https://www.facebook.com/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://t.me/agniveerbd"                            class="f-social-btn" aria-label="Telegram" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg></a>
+            <a href="https://www.youtube.com/c/BangladeshAgniveerOfficial" class="f-social-btn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg></a>
+            <a href="https://twitter.com/bdagniveer"                     class="f-social-btn" aria-label="Twitter" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="f-col-title">বিষয়শ্রেণী</h3>
+          <ul class="f-links">
+            <li><a href="category.html?cat=ved"    class="f-link">বেদ</a></li>
+            <li><a href="category.html?cat=jeevan" class="f-link">বৈদিক জীবনধারা</a></li>
+            <li><a href="category.html?cat=itihas" class="f-link">ইতিহাস</a></li>
+            <li><a href="category.html?cat=bigyan" class="f-link">বিজ্ঞান</a></li>
+            <li><a href="category.html?cat=trait"  class="f-link">ত্রৈতবাদ</a></li>
+            <li><a href="category.html?cat=resp"   class="f-link">অপপ্রচারের জবাব</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="f-col-title">সম্পদ</h3>
+          <ul class="f-links">
+            <li><a href="https://elibrary.agniveerbangla.org/" class="f-link" target="_blank" rel="noopener">গ্রন্থাগার</a></li>
+            <li><a href="category.html" class="f-link">সকল প্রবন্ধ</a></li>
+            <li><a href="contact.html" class="f-link">যোগাযোগ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="f-divider"></div>
+      <div class="f-bottom">
+        <p class="f-copy">© ২০২৬ অগ্নিবীর বাংলা। সর্বস্বত্ব সংরক্ষিত।</p>
+        <ul class="f-btm-links">
+          <li><a href="#" class="f-btm-link">গোপনীয়তা নীতি</a></li>
+          <li><a href="#" class="f-btm-link">শর্তাবলী</a></li>
+        </ul>
+      </div>
+      <div class="f-crafted">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        Crafted by <strong>Pratik Studios</strong>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="btt" aria-label="উপরে যান">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <script src="main.js"></script>
-</body></html>
+</body>
+</html>

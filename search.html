@@ -62,7 +62,7 @@
           <p style="font-size:.875rem;margin-top:.5rem;">অন্য শব্দ দিয়ে চেষ্টা করুন।</p>
         </div>
         <div id="search-initial" style="text-align:center;padding:4rem 0;color:var(--c-text-muted);font-family:var(--f-bn);">
-          <div style="font-size:3rem;margin-bottom:1rem;opacity:.2;">ॐ</div>
+          <div style="font-family:var(--f-sk);font-size:3rem;margin-bottom:1rem;opacity:.2;">ॐ</div>
           <p>উপরের বাক্সে বাংলা বা ইংরেজিতে খুঁজুন</p>
           <p style="font-size:.875rem;margin-top:.5rem;opacity:.6;">যেমন: বেদ, উপনিষদ, পরিবেশ, ঈশ্বর...</p>
         </div>
@@ -88,7 +88,7 @@ function renderResults(results,q){
   empty.style.display='none';
   status.style.display='block';
   status.innerHTML='<strong>'+results.length+'</strong> টি ফলাফল পাওয়া গেছে "<strong>'+q+'</strong>" এর জন্য';
-  grid.innerHTML=results.map(a=>`<a href="${a.link}" class="card fade-up">
+  grid.innerHTML=results.map(a=>`<a href="${a.link}" class="card vis">
     <div class="card-img"><div class="card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="card-badge">${a.cat}</span></div>
     <div class="card-body"><div class="card-meta"><span class="card-tag">${a.cat}</span><span class="card-date">${a.date}</span></div>
     <h3 class="card-title">${highlight(a.title,q)}</h3>

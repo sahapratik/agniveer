@@ -5,13 +5,10 @@
 (function () {
   const nav = document.getElementById('main-nav');
   if (!nav) return;
-  let lastY = 0;
   const onScroll = () => {
-    const y = window.scrollY;
-    nav.classList.toggle('nav-scrolled', y > 60);
-    nav.classList.toggle('nav-hidden', y > lastY + 5 && y > 200);
-    nav.classList.remove('nav-hidden', y <= lastY || y < 200);
-    lastY = y;
+    const solid = window.scrollY > 60;
+    nav.classList.toggle('nav-solid', solid);
+    nav.classList.toggle('nav-transparent', !solid);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -22,28 +19,22 @@
   const btn = document.getElementById('nav-hamburger');
   const menu = document.getElementById('mobile-menu');
   if (!btn || !menu) return;
+  const close = () => {
+    btn.setAttribute('aria-expanded', 'false');
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  };
   btn.addEventListener('click', () => {
     const open = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!open));
-    btn.classList.toggle('is-open', !open);
-    menu.classList.toggle('is-open', !open);
+    btn.classList.toggle('open', !open);
+    menu.classList.toggle('open', !open);
     document.body.style.overflow = open ? '' : 'hidden';
   });
-  menu.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      btn.setAttribute('aria-expanded', 'false');
-      btn.classList.remove('is-open');
-      menu.classList.remove('is-open');
-      document.body.style.overflow = '';
-    })
-  );
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-      btn.setAttribute('aria-expanded', 'false');
-      btn.classList.remove('is-open');
-      menu.classList.remove('is-open');
-      document.body.style.overflow = '';
-    }
+    if (e.key === 'Escape' && menu.classList.contains('open')) close();
   });
 })();
 
@@ -63,13 +54,13 @@
   const els = document.querySelectorAll('.fade-up');
   if (!els.length) return;
   if (!('IntersectionObserver' in window)) {
-    els.forEach(el => el.classList.add('visible'));
+    els.forEach(el => el.classList.add('vis'));
     return;
   }
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.classList.add('visible');
+        e.target.classList.add('vis');
         io.unobserve(e.target);
       }
     });
@@ -81,16 +72,27 @@
 (function () {
   const counters = document.querySelectorAll('[data-target]');
   if (!counters.length) return;
-  const format = n => n >= 1000 ? (n / 1000).toFixed(0) + ',' + '০০০' : String(n);
   const toBN = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+  // Indian-style digit grouping: last 3 digits, then groups of 2 (e.g. 50000 -> 50,000)
+  const groupIndian = n => {
+    const s = String(Math.round(n));
+    if (s.length <= 3) return s;
+    let last3 = s.slice(-3);
+    let rest = s.slice(0, -3);
+    const groups = [];
+    while (rest.length > 2) { groups.unshift(rest.slice(-2)); rest = rest.slice(0, -2); }
+    if (rest) groups.unshift(rest);
+    return groups.join(',') + ',' + last3;
+  };
   const animateCounter = el => {
     const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
     const duration = 1800;
     const step = target / (duration / 16);
     let current = 0;
     const tick = () => {
       current = Math.min(current + step, target);
-      el.textContent = toBN(Math.round(current)) + (current >= target && target >= 1000 ? '+' : '');
+      el.textContent = toBN(groupIndian(current)) + suffix;
       if (current < target) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -112,7 +114,7 @@
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
   window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.scrollY > 400);
+    btn.classList.toggle('show', window.scrollY > 400);
   }, { passive: true });
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
@@ -122,11 +124,11 @@
   const notice = document.getElementById('cookie-notice');
   if (!notice) return;
   if (localStorage.getItem('cookie_ok')) { notice.remove(); return; }
-  setTimeout(() => notice.classList.add('visible'), 1500);
+  setTimeout(() => notice.classList.add('show'), 1500);
   const ok = document.getElementById('cookie-ok');
   const no = document.getElementById('cookie-no');
-  if (ok) ok.addEventListener('click', () => { localStorage.setItem('cookie_ok', '1'); notice.remove(); });
-  if (no) no.addEventListener('click', () => notice.remove());
+  if (ok) ok.addEventListener('click', () => { localStorage.setItem('cookie_ok', '1'); notice.classList.remove('show'); });
+  if (no) no.addEventListener('click', () => notice.classList.remove('show'));
 })();
 
 /* ── SMOOTH ANCHOR SCROLL ────────────────────────────────────── */
